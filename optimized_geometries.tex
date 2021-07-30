@@ -45,7 +45,7 @@
 
 %==============================================================================================
 \begin{document}
-\title{title}
+\title{Optimized geometries for optical lattices}
 \author{A}
 % \email{}
 \affiliation{Department of Physics, Harvard University, Cambridge, Massachusetts 02138, USA}
@@ -67,35 +67,130 @@ This is the abstract.
 %==============================================================================================
 \section{Introduction}
 
-This is the introduction, see \commentSB{not sure about this statement}~\fref{fig:setup}.
+% This is the introduction, see~\fref{fig:setup}.
+% % \commentSB{not sure about this statement}
 
-\begin{equation}
-H = p^2
-\label{eqn:Hamiltonian}
-\end{equation}
+% \begin{equation}
+% H = p^2
+% \label{eqn:Hamiltonian}
+% \end{equation}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.4\textwidth]{figures/setup_2.png} 
-\caption{•}
-\label{fig:setup}
-\end{figure}
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.4\textwidth]{figures/setup_2.png} 
+% \caption{•}
+% \label{fig:setup}
+% \end{figure}
 
-We see in~\eeref{eqn:Hamiltonian} and~\fref{fig:setup},~\eg test~\cite{kramer_quantumopticsjl_2018}
+% We see in~\eeref{eqn:Hamiltonian} and~\fref{fig:setup},~\eg test~\cite{kramer_quantumopticsjl_2018}
 
 %==============================================================================================
 \section{Model}
 \commentSO{arb. geometry, Green's Tensor, Couplings, Polarizations -> Distance dependence, Hamiltonian, Self-energy, Ref. to Taylor's work}
 
+The Green's tensor is 
+
+% \begin{equation}
+
+% \end{equation}
+
+\begin{equation} \resizebox{1.0\hsize}{!}{
+    $ \textbf{G}(\textbf{r},\omega) = \begin{pmatrix}
+        \frac{e^{i\omega r}}{4\pi r} \left[ \left( 1 + \frac{i}{\omega r} - \frac{1}{\omega^2 r^2} \right) - \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_x r_x}{r^2} \right] - \frac{\delta(\textbf{r})}{3\omega^2}
+        & -\frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_x r_y}{r^2}
+        & -\frac{e^{i\omega r}}{4\pi r}  \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_x r_z}{r^2}  \\
+        - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_y r_x}{r^2}  
+        & \frac{e^{i\omega r}}{4\pi r} \left[ \left( 1 + \frac{i}{\omega r} - \frac{1}{\omega^2 r^2} \right) - \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_y r_y}{r^2} \right] - \frac{\delta(\textbf{r})}{3\omega^2} 
+        & - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_y r_z}{r^2} \\
+        - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_z r_x}{r^2} 
+        & - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_z r_y}{r^2} 
+        & \frac{e^{i\omega r}}{4\pi r} \left[ \left( 1 + \frac{i}{\omega r} - \frac{1}{\omega^2 r^2} \right) - \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_z r_z}{r^2} \right] - \frac{\delta(\textbf{r})}{3\omega^2}
+    \end{pmatrix} $
+    \label{eqn:green}
+    }\end{equation}
+    \commentSB{This can't be put here; the sizing is all wrong.}
+
+    Couplings between dipoles are governed coherent and incoherent terms, respectively, 
+    \commentSB{This idea of "coherent" and "incoherent" terms is taken from Taylor's paper, and deserves more explanation.}
+    \commentSB{Also, the way in which these two terms fit into the Hamiltonian should be made clear.}
+    \begin{equation} 
+        J_{ij} = -\frac{3\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Re} [\textbf{G}(\textbf{r}_{ij}, \omega_L)] \cdot \hat{d}_j 
+        \label{eqn:J}
+    \end{equation}
+    \begin{equation}
+        \Gamma_{ij} = \frac{6\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Im} [\textbf{G}(\textbf{r}_{ij},\omega_L)] \cdot \hat{d}_j 
+        \label{eqn:Gamma}
+    \end{equation}
+    \commentSB{It may be worth enumerating these equations with "a" and "b" instead of separate numbers}
+    \commentSB{Also, as a note to myself, watch out for vectors that need to be changed to bold rather than being under arrows}
+
+    Both the lattice dipoles and impurity diples are given circular polarizations, so that their dynamics are independent of their relative orientations.
+    \begin{equation} 
+        \hat{d}_L = \hat{d}_I = \frac{1}{\sqrt{2}} \begin{pmatrix}
+        1 \\ i \\ 0
+        \end{pmatrix} 
+        \label{eqn:polarization}
+    \end{equation}
+    As a result, the strength of couplings depends purely on the relative distances $r_{ij}$ between pairs of dipoles. 
+
+    \commentSB{Put the FIGURES of J over r, and Gamma over r here}
+
+    For further information, see~\cite{patti_controlling_2021}.
+
+    \commentSB{This is a very inelegant way of referencing Taylor's work on my part. This citation should probably go earlier, perhaps as soon as J and Gamma are mentioned.}
+
+    The the most general form of the Hamiltonian is then
+    \begin{equation}
+        H = 
+        \begin{pmatrix}
+            -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & J(r_{12}) - \frac{i \Gamma(r_{12})}{2} & \cdots \\
+            J(r_{21}) - \frac{i \Gamma(r_{21})}{2} & -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & & \\
+            \vdots & & \ddots
+
+        \end{pmatrix}
+    \end{equation}
+    \commentSB{I haven't written out this Hamiltonian in full, because my first question is whether such a general Hamiltonian is even worth writing out. Will it be obvious to the reader?}
+
+    \commentSB{Now, for the self-energy calculation, since there is a certain amount of difference between this calcualation for the single impurity case and the double impurity case, should these calculations be written out individually, in the single-impurity and double-impurity sections}
+
+
+
 %==============================================================================================
 \section{Single impurity case}
 \commentSO{Define lattices, define distances related to lattices, $\Gamma_\mathrm{eff}$, constant area}
 
+\commentSB{Put the self-energy calculation here, along with the Gamma-eff calculation? Because I don't think there's anything more to say here. Any details about the geometries need to be left to the specific sections directly below here.}
+
 \subsection{Square vs. triangular}
+
+Consider a finite square lattice, with an inter-atom spacing that $a = 0.2$, defined as a function of \commentSB{that characteristic wavelength}. 
+
+Compare this to a triangular lattice with the same inter-atom spacing. 
 
 %=================
 \subsubsection{Interstitial}
 \commentSO{Interstitial which imposes one more length scale -> refer to analytics, numerics -> impurity position}
+Now, consider an impurity atom placed within a plaquette. For the square case, we implemented this arrangement using a $4\times 4$ lattice, so that the impurity was centered within the lattice. 
+
+\commentSB{Put a small diagram here? You can illustrate the length scales here as well}
+
+Likewise, for the triangular case, we placed the impurity at the center of a \commentSB{12 atom?} lattice, with the following arrangement. 
+
+\commentSB{diagram?}
+
+By placing the impurity at the center of a plaquette, only one additional length scale is introduced. Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
+
+\commentSB{J and Gamma diagrams}
+
+\commentSB{Should we vary inter-atomic spacing?}
+
+After attempting to place the impurity off-center, it is clear that the point at which the impurity atom experiences minimal decay is at the center of the plaquette. 
+
+\commentSB{diagram}
+
+This point also possesses the highest symmetry, suggesting that additional symmetries lead to slower decay rates. This hypothesis is supported by the behavior of the coupling constants for various positions of the impurity away from the center 
+
+\commentSB{a diagram of this description, which has not been made yet}
 
 
 %=================
