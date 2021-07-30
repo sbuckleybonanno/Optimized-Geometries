@@ -88,6 +88,13 @@ This is the abstract.
 \section{Model}
 \commentSO{arb. geometry, Green's Tensor, Couplings, Polarizations -> Distance dependence, Hamiltonian, Self-energy, Ref. to Taylor's work}
 
+We consider each type of Bravais lattice. Where possible, we set the characteristic inter-atomic spacing to be a factor of 0.2 of \commentSB{that characteristic wavelength}.
+\commentSB{Is this choice of 0.2 based off of Taylor's findings? In that case, cite her here.}
+\commentSB{Also, for something like the triangular plot, shouldn't we choose $a$ such that there is constant area?} 
+
+In order to reasonably compare lattices of differing geometries, we ensure whenever possible that all plaquettes possess the same area, because...
+\commentSB{Does this argument rely on a momentum-space view of things? In any case, make this constant area argument rigorous}
+
 The Green's tensor is 
 
 % \begin{equation}
@@ -135,6 +142,8 @@ The Green's tensor is
 
     \commentSB{Put the FIGURES of J over r, and Gamma over r here}
 
+    \commentSB{Then, at some point here or later, explain the role of the detuning $\delta_{LI}$}
+
     For further information, see~\cite{patti_controlling_2021}.
 
     \commentSB{This is a very inelegant way of referencing Taylor's work on my part. This citation should probably go earlier, perhaps as soon as J and Gamma are mentioned.}
@@ -163,9 +172,10 @@ The Green's tensor is
 
 \subsection{Square vs. triangular}
 
-Consider a finite square lattice, with an inter-atom spacing that $a = 0.2$, defined as a function of \commentSB{that characteristic wavelength}. 
+Consider a finite square lattice, with an inter-atomic spacing of $a = 0.2$, defined as a function of \commentSB{that characteristic wavelength}. 
 
-Compare this to a triangular lattice with the same inter-atom spacing. 
+Compare this to a triangular lattice with the same inter-atomic spacing. 
+\commentSB{see earlier point about how we should really use constant area}
 
 %=================
 \subsubsection{Interstitial}
@@ -184,22 +194,50 @@ By placing the impurity at the center of a plaquette, only one additional length
 
 \commentSB{Should we vary inter-atomic spacing?}
 
-After attempting to place the impurity off-center, it is clear that the point at which the impurity atom experiences minimal decay is at the center of the plaquette. 
+After attempting to place the impurity off-center, 
 
-\commentSB{diagram}
+\commentSB{numerics plaquette plots}
+
+it is clear that the point at which the impurity atom experiences minimal decay is at the center of the plaquette. 
+
+\commentSB{plaquette lineplots showing minimal Gamma}
 
 This point also possesses the highest symmetry, suggesting that additional symmetries lead to slower decay rates. This hypothesis is supported by the behavior of the coupling constants for various positions of the impurity away from the center 
 
-\commentSB{a diagram of this description, which has not been made yet}
+\commentSB{a diagram of this description, which has not been made yet. Or perhaps two diagrams, one moving from the center to a lattice point, and another moving from the center to the midpoint between two lattice points. Actually, four diagrams, because these two should be made for both the square and triangular cases}
 
 
 %=================
 \subsubsection{Substitution}
 \commentSO{Does NOT(!) impose another length scale as long as it is not away from the center -> refer to analytics, -> always at band edge, numerics -> impurity position}
 
+Now, considering substituting a lattice atom for an impurity, so that, in effect, the impurity takes up a vacancy in the lattice. For the square lattice, we used this $5 \times 5$ geometry for our analysis:
+
+\commentSB{diagram}
+
+and for the triangular lattice, we used this geometry
+
+\commentSB{probably an 18 atom lattice?}
+
+Performing this substitution on the lattice introduces no additional length scales, as long as the impurity is placed at the center of the vacancy. If it is placed off-center, the best possible values of $\Gamma_\text{eff}$ are 
+
+\commentSB{plaquette plots from numerics}
+
+Once again, the point with the highest symmetry experience  minimal decay rates
+
+\commentSB{plaquette lineplots showing minimal Gamma}
+
+\commentSB{Maybe include another analytic plot showing how symmetry changes coupling constants? Or maybe not? How much of this is worth including?}
+
 %==============================================================================================
 \subsection{Monoclinic vs. rectangular lattice}
 \commentSO{similar arguments}
+
+Now, consider the Bravais lattices defined by variable paramters. 
+
+In particular, consider a monoclinic lattice defined by $\theta$, such that at $\theta = \frac{\pi}{2}$ we recover the square lattice case with an inter-atomic spacing of $0.2$. By maintaining a constant vertical distance between the layers of the lattice, we ensure that the area of the plaquettes remains constant over the range $ 0 < \theta \leq \frac{\pi}{2}$. 
+
+\commentSB{diagram of this geometry}
 
 %=================
 \subsubsection{Interstitial}
