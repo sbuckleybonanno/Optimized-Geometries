@@ -88,116 +88,165 @@ This is the abstract.
 \section{Model}
 \commentSO{arb. geometry, Green's Tensor, Couplings, Polarizations -> Distance dependence, Hamiltonian, Self-energy, Ref. to Taylor's work}
 
-We consider two-dimensional sub-wavelength lattices of quantum emitters which interact via resonant dipole-dipole interactions. The emitters are assumed to be two-level stems with a ground state $\ket{g}$ and an excited state $\ket{e}$ with a trasition frequency $\omega_L = c k_L$. Where $k_L = 2\pi/\lambda_L$ denotes the related wavenumber with the resonance wavelegth $\lambda_L$. Pairwise resonant dipole-dipole interactions among emitters result in collective couplings and decay rates between emitters $i$ and $j$ at positions $\rr_i$ and $\rr_j$, which are given as
+We consider two-dimensional sub-wavelength lattices of quantum emitters which interact via resonant dipole-dipole interactions. The emitters are assumed to be two-level stems with a ground state $\ket{g}$ and an excited state $\ket{e}$ with a trasition frequency $\omega_L = c k_L$, such that $k_L = 2\pi/\lambda_L$ denotes the related wavenumber with the resonance wavelegth $\lambda_L$. Pairwise resonant dipole-dipole interactions among emitters result in collective couplings $J_{ij}$ and collective decay rates $\Gamma_{ij}$ between emitters $i$ and $j$ at positions $\rr_i$ and $\rr_j$, given by 
+\begin{equation} J_{ij} = -\frac{3\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Re} [\textbf{G}(\textbf{r}_{ij}, \omega_L)] \cdot \hat{d}_j 
+\label{eqn:J} \end{equation}
+\begin{equation} \Gamma_{ij} = \frac{6\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Im} [\textbf{G}(\textbf{r}_{ij},\omega_L)] \cdot \hat{d}_j 
+\label{eqn:Gamma} \end{equation}
+where $\gamma_i$ and $\gamma_j$ are the decay rates of the individual dipoles $i$ and $j$, and $\rr_{ij} = \rr_i - r_j$ is the displacement vector. $\textbf{G}(\textbf{r}_{ij}, \omega_L)$ is the Green's tensor, defined as 
 
-% We consider each type of Bravais lattice.
+\begin{multline} 
+    G_{\alpha\beta} (\textbf{r}, \omega) = \frac{e^{i\omega r}}{4\pi r} \left[ \left( 1 + \frac{i}{\omega r} - \frac{1}{\omega^2 r^2} \right) \delta_{\alpha\beta}
+    \right. \\ \left. 
+    - \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_\alpha r_\beta}{r^2} \right] - \frac{\delta(\textbf{r})}{3\omega^2} \delta_{\alpha\beta} 
+    \label{eqn:Green}
+\end{multline}
 
-% Where possible, we set the characteristic inter-atomic spacing to be a factor of 0.2 of the lattice's resonant wavelength 
+$d_i$ and $d_j$ are the dipole polarizations, which set to be uniformly circular, so that 
 
-% \commentTP{"We consider a subwavelength lattice, with a distance between the atoms that is smaller than their resonant wavelength"}
+\begin{equation} 
+    \hat{d}_L = \hat{d}_I = \frac{1}{\sqrt{2}} \begin{pmatrix}
+    1 \\ i \\ 0
+    \end{pmatrix} 
+    \label{eqn:polarization}
+\end{equation}
 
-\commentTP{Put J and Gamma before the Green's tensor, e.g. "We consider }
+where $\hat{d}_L$ is the polarization of the lattice dipoles, and $\hat{d}_I$ is the polarization of any impurities. This polarization ensures that the dynamics of the system depend purely on the relative distances $r_{ij}$ between pairs of dipoles, independent of their relative orientations. As a result, $J_{ij}$ and $\Gamma_{ij}$ can be written as 
+\begin{equation} J_{ij} = -\frac{3}{8 \omega_L r_{ij}} \left( \cos \omega_L r_{ij} + \frac{\sin \omega_L r_{ij}}{\omega_L r_{ij}} + \frac{\cos \omega_L r_{ij}}{(\omega_L r_{ij})^2} \right) \end{equation}
+\begin{equation} \Gamma_{ij} = \frac{3}{4\omega_L r_{ij}} \left( \sin\omega_L r_{ij} - \frac{\cos\omega_L r_{ij}}{\omega_L r_{ij}} + \frac{\sin\omega_L r_{ij}}{(\omega_L r_{ij})^2} \right) \end{equation}
 
+In this way, collective couplings (\fref{fig:J_r}) and collective decay rates (\fref{fig:Gamma_r}) depend purely on the relative distances $r_{ij}$ between pairs of dipoles, independent of their relative orientations. 
+\begin{figure}
+    % \centering
+    \includegraphics[width=0.4\textwidth]{figures/J(r).png} 
+    \caption{•}
+    \label{fig:J_r}
+\end{figure}
 
+\begin{figure}
+    % \centering
+    \includegraphics[width=0.4\textwidth]{figures/Gamma(r).png} 
+    \caption{•}
+    \label{fig:Gamma_r}
+\end{figure}
 
-% \commentSB{Is this choice of 0.2 based off of Taylor's findings? In that case, cite her here.}
-% \commentSB{Also, for something like the triangular plot, shouldn't we choose $a$ such that there is constant area?} 
+\commentSB{It might be better if these figures go along with the first figure, at the top of this page}
 
+Into this lattice, we place one or two lattice impurities with transition frequency $\omega_I \approx \omega_L$. The overall Hamiltonian is thus 
 
-The Green's tensor is 
+\begin{equation}   
+    H = \sum_i^N \left( \omega_L - \frac{i}{2} \gamma_L \right) \sigma_i^\dag \sigma_i + \sum_{i,j \neq i}^N \left( J_{ij} - \frac{i}{2} \Gamma_{ij} \right) \sigma_i^\dag \sigma_j 
+    \label{eqn:Hamiltonian}
+\end{equation}
 
-% \begin{equation}
+where $\sigma_i$ is the lowering operator of dipole $i$. 
+\commentSB{Is this point about sigma necessary?}
 
-% \end{equation}
-
-\begin{equation} \resizebox{1.0\hsize}{!}{
-    $ \textbf{G}(\textbf{r},\omega) = \begin{pmatrix}
-        \frac{e^{i\omega r}}{4\pi r} \left[ \left( 1 + \frac{i}{\omega r} - \frac{1}{\omega^2 r^2} \right) - \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_x r_x}{r^2} \right] - \frac{\delta(\textbf{r})}{3\omega^2}
-        & -\frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_x r_y}{r^2}
-        & -\frac{e^{i\omega r}}{4\pi r}  \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_x r_z}{r^2}  \\
-        - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_y r_x}{r^2}  
-        & \frac{e^{i\omega r}}{4\pi r} \left[ \left( 1 + \frac{i}{\omega r} - \frac{1}{\omega^2 r^2} \right) - \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_y r_y}{r^2} \right] - \frac{\delta(\textbf{r})}{3\omega^2} 
-        & - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_y r_z}{r^2} \\
-        - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_z r_x}{r^2} 
-        & - \frac{e^{i\omega r}}{4\pi r} \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_z r_y}{r^2} 
-        & \frac{e^{i\omega r}}{4\pi r} \left[ \left( 1 + \frac{i}{\omega r} - \frac{1}{\omega^2 r^2} \right) - \left( 1 + \frac{3i}{\omega r} - \frac{3}{\omega^2 r^2} \right) \frac{r_z r_z}{r^2} \right] - \frac{\delta(\textbf{r})}{3\omega^2}
-    \end{pmatrix} $
-    \label{eqn:green}
-    }\end{equation}
-    \commentSB{This can't be put here; the sizing is all wrong.}
-
-    \commentTP{From here on to the end of this section, remember to tell the reader what every one of these variables means. This is a good way of introducing things like the polarization, etc.}
-
-    \commentTP{Put Green's tensor as Taylor defines it}
-
-    Couplings between dipoles are governed coherent and incoherent terms, respectively, 
-    \commentSB{This idea of "coherent" and "incoherent" terms is taken from Taylor's paper, and deserves more explanation.}
-    \commentSB{Also, the way in which these two terms fit into the Hamiltonian should be made clear.}
-
-    \commentTP{Collective couplings/frequency shifts and collective dissipations}
-
-    $$
-        J_{ij} = -\frac{3\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Re} [\textbf{G}(\textbf{r}_{ij}, \omega_L)] \cdot \hat{d}_j 
-        \label{eqn:J}
-    $$
-    $$
-        \Gamma_{ij} = \frac{6\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Im} [\textbf{G}(\textbf{r}_{ij},\omega_L)] \cdot \hat{d}_j 
-        \label{eqn:Gamma}
-    $$
-
-    \commentTP{Put every type of equation you can think of}
-
-    We place one or two lattice impurities with transition frequency $\omega_I \approx \omega_L$. 
-
-    % \commentSB{It may be worth enumerating these equations with "a" and "b" instead of separate numbers}
-    % \commentSB{Also, as a note to myself, watch out for vectors that need to be changed to bold rather than being under arrows}
-
-    Both the lattice dipoles and impurity diples are given circular polarizations, so that their dynamics are independent of their relative orientations.
-    \begin{equation} 
-        \hat{d}_L = \hat{d}_I = \frac{1}{\sqrt{2}} \begin{pmatrix}
-        1 \\ i \\ 0
-        \end{pmatrix} 
-        \label{eqn:polarization}
-    \end{equation}
-    As a result, the strength of couplings depends purely on the relative distances $r_{ij}$ between pairs of dipoles. 
-
-    \commentSB{Put the figures of J over r, and Gamma over r here. Put this possibly alongside the setup picture.}
-
-    \commentSB{Then, at some point here or later, explain the role of the detuning $\delta_{LI}$}
-
-    % For further information, see~\cite{patti_controlling_2021}.
-
-    % \commentSB{This is a very inelegant way of referencing Taylor's work on my part. This citation should probably go earlier, perhaps as soon as J and Gamma are mentioned.}
-
-    The the most general form of the Hamiltonian is then
-    \begin{equation}
-        H = 
-        \begin{pmatrix}
-            -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & J(r_{12}) - \frac{i \Gamma(r_{12})}{2} & \cdots \\
-            J(r_{21}) - \frac{i \Gamma(r_{21})}{2} & -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & & \\
-            \vdots & & \ddots
-
-        \end{pmatrix}
-    \end{equation}
-    \commentTP{Write Hamiltonian in terms of sigmas and s. Put this lattice definition in later sections.}
-
-    % \commentSB{I haven't written out this Hamiltonian in full, because my first question is whether such a general Hamiltonian is even worth writing out. Will it be obvious to the reader?}
-
-    \commentSB{Now, for the self-energy calculation, since there is a certain amount of difference between this calcualation for the single impurity case and the double impurity case, should these calculations be written out individually, in the single-impurity and double-impurity sections - Yes put in individual sections}
-
-
+\commentSB{Then, at some point here or later, explain the role of the detuning delta}
 
 %==============================================================================================
 \section{Single impurity case}
 \commentSO{Define lattices, define distances related to lattices, $\Gamma_\mathrm{eff}$, constant area}
 
-\commentSB{Put the self-energy calculation here, along with the Gamma-eff calculation? Because I don't think there's anything more to say here. Any details about the geometries need to be left to the specific sections directly below here.}
-\commentTP{Draw a diagram of the four parts of the Hamiltonian to set up the self-energy calculation.}
+% \commentSB{Put the self-energy calculation here, along with the Gamma-eff calculation? Because I don't think there's anything more to say here. Any details about the geometries need to be left to the specific sections directly below here.}
+
+The generic form of the Hamiltonian for a given lattice of $N$ atoms along with a single impurity is 
+
+% \begin{equation}
+%     H = \begin{pmatrix}
+%         H_{11} & H_{12} & \cdots & H_{1N}  &  C_{LI,1}\\ 
+%         H_{21} & H_{22} & & H_{2N}         & C_{LI,2} \\
+%         \vdots & & \ddots & \vdots         & \vdots  \\
+%         H_{N1} & H_{N2} & \cdots & H_{NN} & C_{LI,N} \\
+%         C_{IL,1} & C_{IL,2} & \cdots & C_{IL,N} & H_I   
+%     \end{pmatrix}
+% \end{equation}
+\begin{equation}
+    H = \begin{pmatrix}
+        ~ & ~ & ~ &   C_{LI} \\ 
+        ~ & H_L & ~ & \vdots \\
+        ~ & ~ & ~ & C_{LI} & \\
+        C_{IL} & \cdots & C_{IL} & H_I   
+    \end{pmatrix}
+    \label{eqn:blockH1}
+\end{equation}
+where $H_L$ represents the $N \times N$ matrix of terms for the lattice's own Hamiltonian, $H_I$ is the lattice, and $C_{IL}$ along with $C_{LI}$ represent the coupling terms between the lattice atoms and the impurity. 
+\commentSB{Firstly, is there some better notation than this, especially $C_{IL,1}$, with that comma there. Secondly, does $C_{IL,1} = C_{LI,1}$, or is there some other symmetry that can be exploited in the notation?}
+
+Define the wavefunction such that
+\begin{equation} \psi = 
+\begin{pmatrix}
+    b_1 \\ \vdots \\ b_N \\ c
+\end{pmatrix} 
+\label{eqn:psi}
+\end{equation}
+and assume that the lattice occupies a steady state, so that the Schr\"odinger equation is
+\commentSB{This equation can maybe be eliminated, as it might be redundant. Is there a more appropriate phrasing than "steady state"?}
+
+\begin{equation} i \hbar 
+    \begin{pmatrix}
+    0 \\ \vdots \\ 0 \\ \dot{c}
+    \end{pmatrix} = \begin{pmatrix}
+        ~ & ~ & ~ &   C_{LI} \\ 
+        ~ & H_L & ~ & \vdots \\
+        ~ & ~ & ~ & C_{LI} & \\
+        C_{IL} & \cdots & C_{IL} & H_I   
+    \end{pmatrix} \begin{pmatrix}
+        b_1 \\ \vdots \\ b_N \\ c
+    \end{pmatrix} 
+\end{equation}
+This can be solved to get 
+\begin{equation}
+    \begin{pmatrix}
+        b_1 \\ \vdots \\ b_N
+    \end{pmatrix} = - H_L^{-1} C_{LI} c
+\end{equation}
+Putting this back into the Schr\"odinger equation produces 
+\begin{equation}
+    \dot{c} = -i (H_I - C_{IL}^T H_L^{-1}C_{LI}) c
+\end{equation}
+Recognizing that $ H_I - C_{IL}^T (H_L^{-1}) C_{LI} = \Sigma_I - i \frac{\gamma_I}{2} $, we can calculate the impurity's self-energy $\Sigma_I$ to be 
+\commentSB{Should this identification be justified?}
+\begin{equation}
+    \Sigma_I = H_I - C_{IL}^T (H_L^{-1}) C_{LI} + i \frac{\gamma_I}{2}
+    \label{eqn:selfenergy}
+\end{equation}
+The effective decay rate $\Gamma_\text{eff}$ for an impurity in the lattice is related to this self-energy according to 
+\begin{equation}
+    \Gamma_\text{eff} = \gamma_I - 2~\im[\Sigma_I]
+\end{equation}
+% \begin{equation}
+%     H = 
+%     \begin{pmatrix}
+%         -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & J(r_{12}) - \frac{i \Gamma(r_{12})}{2} & \cdots \\
+%         J(r_{21}) - \frac{i \Gamma(r_{21})}{2} & -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & & \\
+%         \vdots & & \ddots
+
+%     \end{pmatrix}
+% \end{equation} 
+
+
+% \commentTP{Draw a diagram of the four parts of the Hamiltonian to set up the self-energy calculation.}
+
 
 
 In order to reasonably compare lattices of differing geometries, we ensure whenever possible that all plaquettes possess the same area.
 % , because...
 % \commentSB{Does this argument rely on a momentum-space view of things? In any case, make this constant area argument rigorous}
+
+------------------------
+
+\commentSB{This is just a holding space for this matrix, in case we want to copy and paste it to anywhere. I don't actually intend for it to sit here in this section.}
+
+\begin{equation}
+    H = 
+    \begin{pmatrix}
+        -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & J(r_{12}) - \frac{i \Gamma(r_{12})}{2} & \cdots \\
+        J(r_{21}) - \frac{i \Gamma(r_{21})}{2} & -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & & \\
+        \vdots & & \ddots
+    \end{pmatrix}
+\end{equation}
+
 
 \subsection{Square vs. triangular}
 
@@ -220,7 +269,7 @@ Likewise, for the triangular case, we placed the impurity at the center of a \co
 \commentSB{diagram?}
 
 By placing the impurity at the center of a plaquette, only one additional length scale is introduced. 
-% Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
+%  Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
 
 % \commentSB{J and Gamma diagrams}
 
@@ -287,6 +336,59 @@ In particular, consider a monoclinic lattice defined by $\theta$, such that at $
 %==============================================================================================
 \section{Two impurity case}
 \commentSO{Q-factor, analyze different lattices -> discuss the most important figures, constant distance}
+
+$\Gamma_\text{eff}$ for a lattice with two impurities is calculated in a manner analagous to the single-impurity case, starting with the Schr\"odinger equation for the two-impurity Hamiltonian, for which  
+\commentSB{Perhaps write out the meanings of all these new variables, if it's not clear}
+\begin{equation}
+    i \hbar \begin{pmatrix}
+        0 \\ \vdots \\ 0 \\ \dot{c} \\ \dot{d}
+    \end{pmatrix}
+    = \begin{pmatrix}
+        ~ & ~ & ~ &   C_{L1} & C_{L2} \\ 
+        ~ & H_L & ~ & \vdots & \vdots \\
+        ~ & ~ & ~ & C_{L1} &  C_{L2} \\
+        C_{1L} & \cdots & C_{1L} & H_1 & C_{12} \\
+        C_{2L} & \cdots & C_{2L} & C_{21} & H_2  
+    \end{pmatrix} 
+    \begin{pmatrix}
+        b_1 \\ \vdots \\ b_N \\ c \\ d
+    \end{pmatrix}
+    \label{eqn:blockH2}
+\end{equation}
+In this way, 
+\begin{equation}
+    b = -(H_L)^{-1} (C_{L1} c + C_{L2} d)
+\end{equation}
+Putting this result back into the Schr\"odinger equation gives 
+\begin{equation}
+    \dot{c} = -i \left[  H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1}\right] c - i \left[  C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} \right] d
+\end{equation}
+\begin{equation}
+    \dot{d} = -i \left[  H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2}\right] c - i \left[  C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} \right] d 
+\end{equation}
+Let $\dot{c} = -i [\Sigma_1 - \frac{i \gamma_1}{2}]c - i \kappa_1 d $ and $\dot{d} = -i [ \Sigma_2 - \frac{i \gamma_2}{2} ] d - i \kappa_2 c $, where $\kappa_1$ and $\kappa_2$ are ``effective couplings.'' Solving for these and the self-energies results in 
+\begin{equation}
+    \Sigma_1 = H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1} + \frac{i \gamma_1}{2}
+\end{equation}
+\begin{equation}
+    \Sigma_2 = H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2} + \frac{i \gamma_2}{2}
+\end{equation}
+\begin{equation}
+    \kappa_1 = C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} 
+\end{equation}
+\begin{equation}
+    \kappa_2 = C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} 
+\end{equation}
+\commentSB{As a general point: At some point, take note of which equation to give numbers and which to not. Because right now, I'm just reflexively giving them all numbers for simplicity's sake.}
+The impurities' effective decay rates are 
+\begin{align}
+    \Gamma_\text{eff,1} = \gamma_1 - 2~\im[\Sigma_1] &&
+    \Gamma_\text{eff,2} = \gamma_2 - 2~\im[\Sigma_2]
+\end{align}
+We define the Q-factor as a function of the effective decay rate and the effective coupling, so that 
+\begin{align}
+    Q_1 = \frac{re[\kappa_1]}{\Gamma_\text{eff,1}} && Q_2 = \frac{re[\kappa_2]}{\Gamma_\text{eff,2}} 
+\end{align}
 
 %=================
 \subsection{Monoclinic lattice}
