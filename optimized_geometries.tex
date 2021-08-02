@@ -75,12 +75,12 @@ This is the abstract.
 % \label{eqn:Hamiltonian}
 % \end{equation}
 
-% \begin{figure}
-% \centering
-% \includegraphics[width=0.4\textwidth]{figures/setup_2.png} 
-% \caption{•}
-% \label{fig:setup}
-% \end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{figures/setup_2.png} 
+\caption{•}
+\label{fig:setup}
+\end{figure}
 
 % We see in~\eeref{eqn:Hamiltonian} and~\fref{fig:setup},~\eg test~\cite{kramer_quantumopticsjl_2018}
 
@@ -88,12 +88,21 @@ This is the abstract.
 \section{Model}
 \commentSO{arb. geometry, Green's Tensor, Couplings, Polarizations -> Distance dependence, Hamiltonian, Self-energy, Ref. to Taylor's work}
 
-We consider each type of Bravais lattice. Where possible, we set the characteristic inter-atomic spacing to be a factor of 0.2 of \commentSB{that characteristic wavelength}.
-\commentSB{Is this choice of 0.2 based off of Taylor's findings? In that case, cite her here.}
-\commentSB{Also, for something like the triangular plot, shouldn't we choose $a$ such that there is constant area?} 
+We consider two-dimensional sub-wavelength lattices of quantum emitters which interact via resonant dipole-dipole interactions. The emitters are assumed to be two-level stems with a ground state $\ket{g}$ and an excited state $\ket{e}$ with a trasition frequency $\omega_L = c k_L$. Where $k_L = 2\pi/\lambda_L$ denotes the related wavenumber with the resonance wavelegth $\lambda_L$. Pairwise resonant dipole-dipole interactions among emitters result in collective couplings and decay rates between emitters $i$ and $j$ at positions $\rr_i$ and $\rr_j$, which are given as
 
-In order to reasonably compare lattices of differing geometries, we ensure whenever possible that all plaquettes possess the same area, because...
-\commentSB{Does this argument rely on a momentum-space view of things? In any case, make this constant area argument rigorous}
+% We consider each type of Bravais lattice.
+
+% Where possible, we set the characteristic inter-atomic spacing to be a factor of 0.2 of the lattice's resonant wavelength 
+
+% \commentTP{"We consider a subwavelength lattice, with a distance between the atoms that is smaller than their resonant wavelength"}
+
+\commentTP{Put J and Gamma before the Green's tensor, e.g. "We consider }
+
+
+
+% \commentSB{Is this choice of 0.2 based off of Taylor's findings? In that case, cite her here.}
+% \commentSB{Also, for something like the triangular plot, shouldn't we choose $a$ such that there is constant area?} 
+
 
 The Green's tensor is 
 
@@ -117,19 +126,31 @@ The Green's tensor is
     }\end{equation}
     \commentSB{This can't be put here; the sizing is all wrong.}
 
+    \commentTP{From here on to the end of this section, remember to tell the reader what every one of these variables means. This is a good way of introducing things like the polarization, etc.}
+
+    \commentTP{Put Green's tensor as Taylor defines it}
+
     Couplings between dipoles are governed coherent and incoherent terms, respectively, 
     \commentSB{This idea of "coherent" and "incoherent" terms is taken from Taylor's paper, and deserves more explanation.}
     \commentSB{Also, the way in which these two terms fit into the Hamiltonian should be made clear.}
-    \begin{equation} 
+
+    \commentTP{Collective couplings/frequency shifts and collective dissipations}
+
+    $$
         J_{ij} = -\frac{3\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Re} [\textbf{G}(\textbf{r}_{ij}, \omega_L)] \cdot \hat{d}_j 
         \label{eqn:J}
-    \end{equation}
-    \begin{equation}
+    $$
+    $$
         \Gamma_{ij} = \frac{6\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Im} [\textbf{G}(\textbf{r}_{ij},\omega_L)] \cdot \hat{d}_j 
         \label{eqn:Gamma}
-    \end{equation}
-    \commentSB{It may be worth enumerating these equations with "a" and "b" instead of separate numbers}
-    \commentSB{Also, as a note to myself, watch out for vectors that need to be changed to bold rather than being under arrows}
+    $$
+
+    \commentTP{Put every type of equation you can think of}
+
+    We place one or two lattice impurities with transition frequency $\omega_I \approx \omega_L$. 
+
+    % \commentSB{It may be worth enumerating these equations with "a" and "b" instead of separate numbers}
+    % \commentSB{Also, as a note to myself, watch out for vectors that need to be changed to bold rather than being under arrows}
 
     Both the lattice dipoles and impurity diples are given circular polarizations, so that their dynamics are independent of their relative orientations.
     \begin{equation} 
@@ -140,13 +161,13 @@ The Green's tensor is
     \end{equation}
     As a result, the strength of couplings depends purely on the relative distances $r_{ij}$ between pairs of dipoles. 
 
-    \commentSB{Put the FIGURES of J over r, and Gamma over r here}
+    \commentSB{Put the figures of J over r, and Gamma over r here. Put this possibly alongside the setup picture.}
 
     \commentSB{Then, at some point here or later, explain the role of the detuning $\delta_{LI}$}
 
-    For further information, see~\cite{patti_controlling_2021}.
+    % For further information, see~\cite{patti_controlling_2021}.
 
-    \commentSB{This is a very inelegant way of referencing Taylor's work on my part. This citation should probably go earlier, perhaps as soon as J and Gamma are mentioned.}
+    % \commentSB{This is a very inelegant way of referencing Taylor's work on my part. This citation should probably go earlier, perhaps as soon as J and Gamma are mentioned.}
 
     The the most general form of the Hamiltonian is then
     \begin{equation}
@@ -158,9 +179,11 @@ The Green's tensor is
 
         \end{pmatrix}
     \end{equation}
-    \commentSB{I haven't written out this Hamiltonian in full, because my first question is whether such a general Hamiltonian is even worth writing out. Will it be obvious to the reader?}
+    \commentTP{Write Hamiltonian in terms of sigmas and s. Put this lattice definition in later sections.}
 
-    \commentSB{Now, for the self-energy calculation, since there is a certain amount of difference between this calcualation for the single impurity case and the double impurity case, should these calculations be written out individually, in the single-impurity and double-impurity sections}
+    % \commentSB{I haven't written out this Hamiltonian in full, because my first question is whether such a general Hamiltonian is even worth writing out. Will it be obvious to the reader?}
+
+    \commentSB{Now, for the self-energy calculation, since there is a certain amount of difference between this calcualation for the single impurity case and the double impurity case, should these calculations be written out individually, in the single-impurity and double-impurity sections - Yes put in individual sections}
 
 
 
@@ -169,6 +192,12 @@ The Green's tensor is
 \commentSO{Define lattices, define distances related to lattices, $\Gamma_\mathrm{eff}$, constant area}
 
 \commentSB{Put the self-energy calculation here, along with the Gamma-eff calculation? Because I don't think there's anything more to say here. Any details about the geometries need to be left to the specific sections directly below here.}
+\commentTP{Draw a diagram of the four parts of the Hamiltonian to set up the self-energy calculation.}
+
+
+In order to reasonably compare lattices of differing geometries, we ensure whenever possible that all plaquettes possess the same area.
+% , because...
+% \commentSB{Does this argument rely on a momentum-space view of things? In any case, make this constant area argument rigorous}
 
 \subsection{Square vs. triangular}
 
@@ -176,6 +205,8 @@ Consider a finite square lattice, with an inter-atomic spacing of $a = 0.2$, def
 
 Compare this to a triangular lattice with the same inter-atomic spacing. 
 \commentSB{see earlier point about how we should really use constant area}
+
+\commentTP{Put a figure that just shows a single plaquette for each of our two cases here, with dots going off in 4 and 3 directions respectively}
 
 %=================
 \subsubsection{Interstitial}
@@ -188,13 +219,16 @@ Likewise, for the triangular case, we placed the impurity at the center of a \co
 
 \commentSB{diagram?}
 
-By placing the impurity at the center of a plaquette, only one additional length scale is introduced. Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
+By placing the impurity at the center of a plaquette, only one additional length scale is introduced. 
+% Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
 
-\commentSB{J and Gamma diagrams}
+% \commentSB{J and Gamma diagrams}
 
-\commentSB{Should we vary inter-atomic spacing?}
+% \commentSB{Should we vary inter-atomic spacing?}
 
 After attempting to place the impurity off-center, 
+
+\commentTP{Have a plot of Gamma over delta, to justify how we choose an "optimum" delta}
 
 \commentSB{numerics plaquette plots}
 
@@ -227,7 +261,7 @@ Once again, the point with the highest symmetry experience  minimal decay rates
 
 \commentSB{plaquette lineplots showing minimal Gamma}
 
-\commentSB{Maybe include another analytic plot showing how symmetry changes coupling constants? Or maybe not? How much of this is worth including?}
+\commentSB{Maybe include another analytic plot showing how symmetry changes coupling constants? Just do this for square lattice.}
 
 %==============================================================================================
 \subsection{Monoclinic vs. rectangular lattice}
