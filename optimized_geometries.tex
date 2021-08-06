@@ -93,6 +93,7 @@ We consider two-dimensional sub-wavelength lattices of quantum emitters which in
 \label{eqn:J} \end{equation}
 \begin{equation} \Gamma_{ij} = \frac{6\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Im} [\textbf{G}(\textbf{r}_{ij},\omega_L)] \cdot \hat{d}_j 
 \label{eqn:Gamma} \end{equation}
+\commentTP{Make this and all the others into subequations}
 where $\gamma_i$ and $\gamma_j$ are the decay rates of the individual dipoles $i$ and $j$, and $\rr_{ij} = \rr_i - r_j$ is the displacement vector. $\textbf{G}(\textbf{r}_{ij}, \omega_L)$ is the Green's tensor, defined as 
 
 \begin{multline} 
@@ -110,24 +111,20 @@ $d_i$ and $d_j$ are the dipole polarizations, which set to be uniformly circular
     \end{pmatrix} 
     \label{eqn:polarization}
 \end{equation}
+\commentTP{Write in-line, horizontally with the transpose operators}
 
 where $\hat{d}_L$ is the polarization of the lattice dipoles, and $\hat{d}_I$ is the polarization of any impurities. This polarization ensures that the dynamics of the system depend purely on the relative distances $r_{ij}$ between pairs of dipoles, independent of their relative orientations. As a result, $J_{ij}$ and $\Gamma_{ij}$ can be written as 
 \begin{equation} J_{ij} = -\frac{3}{8 \omega_L r_{ij}} \left( \cos \omega_L r_{ij} + \frac{\sin \omega_L r_{ij}}{\omega_L r_{ij}} + \frac{\cos \omega_L r_{ij}}{(\omega_L r_{ij})^2} \right) \end{equation}
 \begin{equation} \Gamma_{ij} = \frac{3}{4\omega_L r_{ij}} \left( \sin\omega_L r_{ij} - \frac{\cos\omega_L r_{ij}}{\omega_L r_{ij}} + \frac{\sin\omega_L r_{ij}}{(\omega_L r_{ij})^2} \right) \end{equation}
+\commentTP{Put brackets on cosines and sines}
 
 In this way, collective couplings (\fref{fig:J_r}) and collective decay rates (\fref{fig:Gamma_r}) depend purely on the relative distances $r_{ij}$ between pairs of dipoles, independent of their relative orientations. 
-\begin{figure}
-    % \centering
-    \includegraphics[width=0.4\textwidth]{figures/J(r).png} 
-    \caption{•}
-    \label{fig:J_r}
-\end{figure}
 
 \begin{figure}
     % \centering
-    \includegraphics[width=0.4\textwidth]{figures/Gamma(r).png} 
+    \includegraphics[width=0.4\textwidth]{figures/J_and_Gamma.png} 
     \caption{•}
-    \label{fig:Gamma_r}
+    \label{fig:J_and_Gamma.png}
 \end{figure}
 
 \commentSB{It might be better if these figures go along with the first figure, at the top of this page}
@@ -138,6 +135,8 @@ Into this lattice, we place one or two lattice impurities with transition freque
     H = \sum_i^N \left( \omega_L - \frac{i}{2} \gamma_L \right) \sigma_i^\dag \sigma_i + \sum_{i,j \neq i}^N \left( J_{ij} - \frac{i}{2} \Gamma_{ij} \right) \sigma_i^\dag \sigma_j 
     \label{eqn:Hamiltonian}
 \end{equation}
+
+\commentTP{Add impurity Hamiltonian! Write as H = HL + HLI + HII. Define for the two-imputity case, and say that you just take away some terms to get the single impurity case. Write out each of these three terms as three separate equations}
 
 where $\sigma_i$ is the lowering operator of dipole $i$. 
 \commentSB{Is this point about sigma necessary?}
@@ -180,6 +179,7 @@ Define the wavefunction such that
 \end{pmatrix} 
 \label{eqn:psi}
 \end{equation}
+\commentTP{Put this in-line, horizontally with transpose operator}
 and assume that the lattice occupies a steady state, so that the Schr\"odinger equation is
 \commentSB{This equation can maybe be eliminated, as it might be redundant. Is there a more appropriate phrasing than "steady state"?}
 
@@ -252,21 +252,31 @@ In order to reasonably compare lattices of differing geometries, we ensure whene
 
 Consider a finite square lattice, with an inter-atomic spacing of $a = 0.2$, defined as a function of \commentSB{that characteristic wavelength}. 
 
-Compare this to a triangular lattice with the same inter-atomic spacing. 
-\commentSB{see earlier point about how we should really use constant area}
+Compare this to a triangular lattice with the same plaquette area, and hence, a side-length of (...) 
+\commentSB{fill in these details}
+% \commentSB{see earlier point about how we should really use constant area}
 
-\commentTP{Put a figure that just shows a single plaquette for each of our two cases here, with dots going off in 4 and 3 directions respectively}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/triangle_and_square.png} 
+    \caption{•\commentSB{Should this be made into one long line and put at the top of a page? Also, maybe draw out the full lattices, all 4x4, and the whole triangular lattice. Or maybe just the triangular lattice?}}
+    \label{fig:triangle_and_square}
+\end{figure}
+
+See \fref{fig:triangle_and_square}.
+
+% \commentTP{Put a figure that just shows a single plaquette for each of our two cases here, with dots going off in 4 and 3 directions respectively}
 
 %=================
 \subsubsection{Interstitial}
 \commentSO{Interstitial which imposes one more length scale -> refer to analytics, numerics -> impurity position}
 Now, consider an impurity atom placed within a plaquette. For the square case, we implemented this arrangement using a $4\times 4$ lattice, so that the impurity was centered within the lattice. 
 
-\commentSB{Put a small diagram here? You can illustrate the length scales here as well}
+% \commentSB{Put a small diagram here? You can illustrate the length scales here as well}
 
 Likewise, for the triangular case, we placed the impurity at the center of a \commentSB{12 atom?} lattice, with the following arrangement. 
 
-\commentSB{diagram?}
+% \commentSB{diagram?}
 
 By placing the impurity at the center of a plaquette, only one additional length scale is introduced. 
 %  Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
@@ -277,17 +287,45 @@ By placing the impurity at the center of a plaquette, only one additional length
 
 After attempting to place the impurity off-center, 
 
-\commentTP{Have a plot of Gamma over delta, to justify how we choose an "optimum" delta}
+% \commentTP{Have a plot of Gamma over delta, to justify how we choose an "optimum" delta}
 
-\commentSB{numerics plaquette plots}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{figures/delta_check.png} 
+%     \caption{•}
+%     \label{fig:delta_check}
+% \end{figure}
+
+\includegraphics[width=0.4\textwidth]{figures/delta_check.png} 
+
+\commentSB{Either one or both of these plots, perhaps for some different range of values. Also, can this be fully in-line, or shoud it be given a caption?}
+
+% \commentSB{numerics plaquette plots}
+\begin{figure*}
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/triangle_and_square_plaquette_interstitial.png} 
+    \caption{•}
+    \label{fig:triangle_and_square_plaquette_interstitial}
+\end{figure*}
+\commentSB{Should the plots in \fref{fig:triangle_and_square_plaquette_interstitial} and \fref{fig:triangle_and_square_plaquette_substitution} be separate?}
+
 
 it is clear that the point at which the impurity atom experiences minimal decay is at the center of the plaquette. 
 
-\commentSB{plaquette lineplots showing minimal Gamma}
+% \commentSB{plaquette lineplots showing minimal Gamma}
 
 This point also possesses the highest symmetry, suggesting that additional symmetries lead to slower decay rates. This hypothesis is supported by the behavior of the coupling constants for various positions of the impurity away from the center 
 
-\commentSB{a diagram of this description, which has not been made yet. Or perhaps two diagrams, one moving from the center to a lattice point, and another moving from the center to the midpoint between two lattice points. Actually, four diagrams, because these two should be made for both the square and triangular cases}
+\commentSB{a diagram of this description, which has not been made yet. Or perhaps two diagrams, one moving from the center to a lattice point, and another moving from the center to the midpoint between two lattice points. Actually, four diagrams, because these two should be made for both the square and triangular cases. See placeholder below}
+
+% \begin{figure}
+    % \centering
+    \includegraphics[width=0.4\textwidth]{figures/triangle_and_square_interstitial_coupling.png}
+    % \label{fig:triangle_and_square_coupling}
+% \end{figure}
+
+
+\commentSB{This is a placeholder. again, should this be given a caption?}
 
 
 %=================
@@ -296,21 +334,34 @@ This point also possesses the highest symmetry, suggesting that additional symme
 
 Now, considering substituting a lattice atom for an impurity, so that, in effect, the impurity takes up a vacancy in the lattice. For the square lattice, we used this $5 \times 5$ geometry for our analysis:
 
-\commentSB{diagram}
+\commentSB{diagram. Or is this unnecessary?}
 
 and for the triangular lattice, we used this geometry
 
-\commentSB{probably an 18 atom lattice?}
+% \commentSB{probably an 18 atom lattice?}
+\includegraphics[width=0.4\textwidth]{figures/triangle_substitution_geometry.png}
+\commentSB{Don't mind the spacing error, that will be fixed. Also, caption or not? Also, make sure to redo simulations with specifically this geometry}
 
 Performing this substitution on the lattice introduces no additional length scales, as long as the impurity is placed at the center of the vacancy. If it is placed off-center, the best possible values of $\Gamma_\text{eff}$ are 
 
-\commentSB{plaquette plots from numerics}
+% \commentSB{plaquette plots from numerics}
 
-Once again, the point with the highest symmetry experience  minimal decay rates
+\begin{figure*}
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/triangle_and_square_plaquette_substitution.png} 
+    \caption{•}
+    \label{fig:triangle_and_square_plaquette_substitution}
+\end{figure*}
 
-\commentSB{plaquette lineplots showing minimal Gamma}
+Once again, the point with the highest symmetry experience minimal decay rates
+
+% \commentSB{plaquette lineplots showing minimal Gamma}
 
 \commentSB{Maybe include another analytic plot showing how symmetry changes coupling constants? Just do this for square lattice.}
+
+\includegraphics[width=0.4\textwidth]{figures/triangle_and_square_substitution_coupling.png}
+
+\commentSB{placeholder. Also, should this be combined with the other couplings plot? To give a kind of plot of symmetries? Then there will be 3 pages of large plots.}
 
 %==============================================================================================
 \subsection{Monoclinic vs. rectangular lattice}
@@ -322,16 +373,45 @@ In particular, consider a monoclinic lattice defined by $\theta$, such that at $
 
 \commentSB{diagram of this geometry}
 
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/mono_rect_geo.png} 
+    \caption{•}
+    \label{fig:mono_rect_geo}
+\end{figure*}
+
 %=================
 \subsubsection{Interstitial}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/mono_rect_plaquettes_interstitial.png} 
+    \caption{•}
+    \label{fig:mono_rect_plaquette_interstitial}
+\end{figure*}
 
 
 %=================
 \subsubsection{Substitution}
 
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/mono_rect_plaquettes_substitution.png} 
+    \caption{•}
+    \label{fig:mono_rect_plaquette_substitution}
+\end{figure*}
+
 %=================
 \subsubsection{Varying scaling factors}
 \commentSO{justify why we use interstitial in the following}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/mono_rect_thetadelta.png} 
+    \caption{•}
+    \label{fig:mono_rect_thetadelta}
+\end{figure*}
+
 
 %==============================================================================================
 \section{Two impurity case}
@@ -359,13 +439,15 @@ In this way,
 \begin{equation}
     b = -(H_L)^{-1} (C_{L1} c + C_{L2} d)
 \end{equation}
-Putting this result back into the Schr\"odinger equation gives 
-\begin{equation}
-    \dot{c} = -i \left[  H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1}\right] c - i \left[  C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} \right] d
-\end{equation}
-\begin{equation}
-    \dot{d} = -i \left[  H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2}\right] c - i \left[  C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} \right] d 
-\end{equation}
+Putting this result back into the Schr\"odinger equation gives
+\begin{subequations}
+\begin{align}
+    \dot{c} &= -i \left[  H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1}\right] c \nonumber\\
+     &\quad- i \left[  C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} \right]  \\
+    \dot{d} &= -i \left[  H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2}\right] c \nonumber\\
+     &\quad- i \left[  C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} \right] d 
+\end{align}
+\end{subequations}
 Let $\dot{c} = -i [\Sigma_1 - \frac{i \gamma_1}{2}]c - i \kappa_1 d $ and $\dot{d} = -i [ \Sigma_2 - \frac{i \gamma_2}{2} ] d - i \kappa_2 c $, where $\kappa_1$ and $\kappa_2$ are ``effective couplings.'' Solving for these and the self-energies results in 
 \begin{equation}
     \Sigma_1 = H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1} + \frac{i \gamma_1}{2}
@@ -385,9 +467,10 @@ The impurities' effective decay rates are
     \Gamma_\text{eff,1} = \gamma_1 - 2~\im[\Sigma_1] &&
     \Gamma_\text{eff,2} = \gamma_2 - 2~\im[\Sigma_2]
 \end{align}
+\commentTP{Put these in-line, and consolidate them into single equations of the form $\Gamma_\text{eff:1,2}$. And mention that the 1 and 2 equations are equal to each other because we choose that to be the case, and so we can really just atlk about a single Geff and a single Q}
 We define the Q-factor as a function of the effective decay rate and the effective coupling, so that 
 \begin{align}
-    Q_1 = \frac{re[\kappa_1]}{\Gamma_\text{eff,1}} && Q_2 = \frac{re[\kappa_2]}{\Gamma_\text{eff,2}} 
+    Q_1 = \frac{\re[\kappa_1]}{\Gamma_\text{eff,1}} && Q_2 = \frac{\re[\kappa_2]}{\Gamma_\text{eff,2}} 
 \end{align}
 
 %=================
