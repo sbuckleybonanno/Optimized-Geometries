@@ -147,6 +147,8 @@ where $\sigma_i$ is the lowering operator of dipole $i$.
 \section{Single impurity case}
 \commentSO{Define lattices, define distances related to lattices, $\Gamma_\mathrm{eff}$, constant area}
 
+\commentTP{Remember to say that we only focus on non-centered Bravais lattices, never centered Bravais lattices. }
+
 % \commentSB{Put the self-energy calculation here, along with the Gamma-eff calculation? Because I don't think there's anything more to say here. Any details about the geometries need to be left to the specific sections directly below here.}
 
 The generic form of the Hamiltonian for a given lattice of $N$ atoms along with a single impurity is 
@@ -263,6 +265,8 @@ Compare this to a triangular lattice with the same plaquette area, and hence, a 
     \label{fig:triangle_and_square}
 \end{figure}
 
+\commentSB{Put a diagram of all the Bravais lattices, as a part of this one.}
+
 See \fref{fig:triangle_and_square}.
 
 % \commentTP{Put a figure that just shows a single plaquette for each of our two cases here, with dots going off in 4 and 3 directions respectively}
@@ -299,6 +303,7 @@ After attempting to place the impurity off-center,
 \includegraphics[width=0.4\textwidth]{figures/delta_check.png} 
 
 \commentSB{Either one or both of these plots, perhaps for some different range of values. Also, can this be fully in-line, or shoud it be given a caption?}
+\commentTP{Have a single graph, from the analytics}
 
 % \commentSB{numerics plaquette plots}
 \begin{figure*}
@@ -308,7 +313,7 @@ After attempting to place the impurity off-center,
     \label{fig:triangle_and_square_plaquette_interstitial}
 \end{figure*}
 \commentSB{Should the plots in \fref{fig:triangle_and_square_plaquette_interstitial} and \fref{fig:triangle_and_square_plaquette_substitution} be separate?}
-
+\commentTP{Take out optimal delta values, and put it in the appendix. Change to Stefan's reccomendation, with square and triangle side-by-side, and the minimal lineplots directly below}
 
 it is clear that the point at which the impurity atom experiences minimal decay is at the center of the plaquette. 
 
@@ -326,6 +331,7 @@ This point also possesses the highest symmetry, suggesting that additional symme
 
 
 \commentSB{This is a placeholder. again, should this be given a caption?}
+\commentTP{Consolidate into the two big pictures of this section, as Stefan's outline shows}
 
 
 %=================
@@ -334,7 +340,7 @@ This point also possesses the highest symmetry, suggesting that additional symme
 
 Now, considering substituting a lattice atom for an impurity, so that, in effect, the impurity takes up a vacancy in the lattice. For the square lattice, we used this $5 \times 5$ geometry for our analysis:
 
-\commentSB{diagram. Or is this unnecessary?}
+\commentSB{diagram. Or is this unnecessary? Probably not}
 
 and for the triangular lattice, we used this geometry
 
@@ -385,7 +391,7 @@ In particular, consider a monoclinic lattice defined by $\theta$, such that at $
 
 \begin{figure*}
     \centering
-    \includegraphics[width=0.4\textwidth]{figures/mono_rect_plaquettes_interstitial.png} 
+    \includegraphics[width=1.0\textwidth]{figures/mono_rect_plaquettes_interstitial.png} 
     \caption{•}
     \label{fig:mono_rect_plaquette_interstitial}
 \end{figure*}
@@ -405,12 +411,12 @@ In particular, consider a monoclinic lattice defined by $\theta$, such that at $
 \subsubsection{Varying scaling factors}
 \commentSO{justify why we use interstitial in the following}
 
-\begin{figure*}
+\begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{figures/mono_rect_thetadelta.png} 
     \caption{•}
     \label{fig:mono_rect_thetadelta}
-\end{figure*}
+\end{figure}
 
 
 %==============================================================================================
