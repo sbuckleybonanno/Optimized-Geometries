@@ -89,11 +89,15 @@ This is the abstract.
 \commentSO{arb. geometry, Green's Tensor, Couplings, Polarizations -> Distance dependence, Hamiltonian, Self-energy, Ref. to Taylor's work}
 
 We consider two-dimensional sub-wavelength lattices of quantum emitters which interact via resonant dipole-dipole interactions. The emitters are assumed to be two-level stems with a ground state $\ket{g}$ and an excited state $\ket{e}$ with a trasition frequency $\omega_L = c k_L$, such that $k_L = 2\pi/\lambda_L$ denotes the related wavenumber with the resonance wavelegth $\lambda_L$. Pairwise resonant dipole-dipole interactions among emitters result in collective couplings $J_{ij}$ and collective decay rates $\Gamma_{ij}$ between emitters $i$ and $j$ at positions $\rr_i$ and $\rr_j$, given by 
-\begin{equation} J_{ij} = -\frac{3\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Re} [\textbf{G}(\textbf{r}_{ij}, \omega_L)] \cdot \hat{d}_j 
-\label{eqn:J} \end{equation}
-\begin{equation} \Gamma_{ij} = \frac{6\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Im} [\textbf{G}(\textbf{r}_{ij},\omega_L)] \cdot \hat{d}_j 
-\label{eqn:Gamma} \end{equation}
-\commentTP{Make this and all the others into subequations}
+\begin{subequations}
+    \begin{align} J_{ij} = -\frac{3\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Re} [\textbf{G}(\textbf{r}_{ij}, \omega_L)] \cdot \hat{d}_j 
+    \label{eqn:J} \\
+    \Gamma_{ij} = \frac{6\pi \sqrt{\gamma_i \gamma_j}}{\omega_L} {\hat{d}^\dagger}_i \cdot \textbf{Im} [\textbf{G}(\textbf{r}_{ij},\omega_L)] \cdot \hat{d}_j 
+    \label{eqn:Gamma} 
+    \end{align}
+\end{subequations}
+
+% \commentTP{Make this and all the others into subequations}
 where $\gamma_i$ and $\gamma_j$ are the decay rates of the individual dipoles $i$ and $j$, and $\rr_{ij} = \rr_i - r_j$ is the displacement vector. $\textbf{G}(\textbf{r}_{ij}, \omega_L)$ is the Green's tensor, defined as 
 
 \begin{multline} 
@@ -103,43 +107,39 @@ where $\gamma_i$ and $\gamma_j$ are the decay rates of the individual dipoles $i
     \label{eqn:Green}
 \end{multline}
 
-$d_i$ and $d_j$ are the dipole polarizations, which set to be uniformly circular, so that 
-
-\begin{equation} 
-    \hat{d}_L = \hat{d}_I = \frac{1}{\sqrt{2}} \begin{pmatrix}
-    1 \\ i \\ 0
-    \end{pmatrix} 
-    \label{eqn:polarization}
-\end{equation}
-\commentTP{Write in-line, horizontally with the transpose operators}
-
+$d_i$ and $d_j$ are the dipole polarizations, which are set to be uniformly circular, so that $ \hat{d}_L = \hat{d}_I = \frac{1}{\sqrt{2}} \begin{pmatrix} 
+    1 && i && 0 
+\end{pmatrix} ^T
+\label{eqn:polarization} $
 where $\hat{d}_L$ is the polarization of the lattice dipoles, and $\hat{d}_I$ is the polarization of any impurities. This polarization ensures that the dynamics of the system depend purely on the relative distances $r_{ij}$ between pairs of dipoles, independent of their relative orientations. As a result, $J_{ij}$ and $\Gamma_{ij}$ can be written as 
-\begin{equation} J_{ij} = -\frac{3}{8 \omega_L r_{ij}} \left( \cos \omega_L r_{ij} + \frac{\sin \omega_L r_{ij}}{\omega_L r_{ij}} + \frac{\cos \omega_L r_{ij}}{(\omega_L r_{ij})^2} \right) \end{equation}
-\begin{equation} \Gamma_{ij} = \frac{3}{4\omega_L r_{ij}} \left( \sin\omega_L r_{ij} - \frac{\cos\omega_L r_{ij}}{\omega_L r_{ij}} + \frac{\sin\omega_L r_{ij}}{(\omega_L r_{ij})^2} \right) \end{equation}
-\commentTP{Put brackets on cosines and sines}
-
+\begin{subequations}
+    \begin{align}
+    J_{ij} = -\frac{3}{8 \omega_L r_{ij}} \left( \cos (\omega_L r_{ij}) + \frac{\sin (\omega_L r_{ij})}{\omega_L r_{ij}} + \frac{\cos (\omega_L r_{ij})}{(\omega_L r_{ij})^2} \right) \\
+    \Gamma_{ij} = \frac{3}{4\omega_L r_{ij}} \left( \sin(\omega_L r_{ij}) - \frac{\cos(\omega_L r_{ij})}{\omega_L r_{ij}} + \frac{\sin(\omega_L r_{ij})}{(\omega_L r_{ij})^2} \right) 
+    \end{align}
+\end{subequations}
 In this way, collective couplings (\fref{fig:J_r}) and collective decay rates (\fref{fig:Gamma_r}) depend purely on the relative distances $r_{ij}$ between pairs of dipoles, independent of their relative orientations. 
-
 \begin{figure}
     % \centering
     \includegraphics[width=0.4\textwidth]{figures/J_and_Gamma.png} 
     \caption{•}
     \label{fig:J_and_Gamma.png}
 \end{figure}
+% \commentSB{It might be better if these figures go along with the first figure, at the top of this page}
+Into this lattice, we place one or two lattice impurities with transition frequency $\omega_I \approx \omega_L$. The overall Hamiltonian is $H = H_L + H_{LI} + H_{I}$, where $H_L$ is the Hamiltonian of the lattice, $H_{LI}$ is the Hamiltonian for the interaction between the lattice and any impurities, and $H_{I}$ is for the interactions involving just impurities. These Hamiltonians are defined such that  
 
-\commentSB{It might be better if these figures go along with the first figure, at the top of this page}
+\begin{subequations}
+    \begin{align}   
+        H_L = \sum_i^{N_L} \left( \omega_L - \frac{i}{2} \gamma_L \right) \sigma_i^\dag \sigma_i + \sum_{i,j \neq i}^{N_L} \left( J_{ij} - \frac{i}{2} \Gamma_{ij} \right) \sigma_i^\dag \sigma_j \\
+        H_{LI} = \sum_{i}^{N_L}  \sum_{j}^{N_I} \left[ \left( J_{ij} - \frac{i}{2} \Gamma_{ij} \right) \sigma_i^\dag s_j + \left( J_{ji} - \frac{i}{2} \Gamma_{ji} \right) s_j^\dag \sigma_i \right] \\
+        H_I = \sum_j^{N_I} \left( \omega_I - \frac{i}{2} \gamma_I \right) s_j^\dag s_j + \sum_{i,j \neq i}^{N_I} \left( J_{ij} - \frac{i}{2} \Gamma_{ij} \right) s_i^\dag s_j
+        \label{eqn:Hamiltonian}
+    \end{align}
+\end{subequations}
 
-Into this lattice, we place one or two lattice impurities with transition frequency $\omega_I \approx \omega_L$. The overall Hamiltonian is thus 
+where $N_L$ is the number of lattice atoms, $\sigma_i$ is the lowering operator for lattice atom $i$, $N_I$ is the number of impurities, and $s_j$ is the lowering operator for impurity $j$. 
 
-\begin{equation}   
-    H = \sum_i^N \left( \omega_L - \frac{i}{2} \gamma_L \right) \sigma_i^\dag \sigma_i + \sum_{i,j \neq i}^N \left( J_{ij} - \frac{i}{2} \Gamma_{ij} \right) \sigma_i^\dag \sigma_j 
-    \label{eqn:Hamiltonian}
-\end{equation}
-
-\commentTP{Add impurity Hamiltonian! Write as H = HL + HLI + HII. Define for the two-imputity case, and say that you just take away some terms to get the single impurity case. Write out each of these three terms as three separate equations}
-
-where $\sigma_i$ is the lowering operator of dipole $i$. 
-\commentSB{Is this point about sigma necessary?}
+% \commentTP{Add impurity Hamiltonian! Write as H = HL + HLI + HII. Define for the two-imputity case, and say that you just take away some terms to get the single impurity case. Write out each of these three terms as three separate equations}
 
 \commentSB{Then, at some point here or later, explain the role of the detuning delta}
 
@@ -147,7 +147,7 @@ where $\sigma_i$ is the lowering operator of dipole $i$.
 \section{Single impurity case}
 \commentSO{Define lattices, define distances related to lattices, $\Gamma_\mathrm{eff}$, constant area}
 
-\commentTP{Remember to say that we only focus on non-centered Bravais lattices, never centered Bravais lattices. }
+% \commentTP{Remember to say that we only focus on non-centered Bravais lattices, never centered Bravais lattices. }
 
 % \commentSB{Put the self-energy calculation here, along with the Gamma-eff calculation? Because I don't think there's anything more to say here. Any details about the geometries need to be left to the specific sections directly below here.}
 
@@ -172,18 +172,15 @@ The generic form of the Hamiltonian for a given lattice of $N$ atoms along with 
     \label{eqn:blockH1}
 \end{equation}
 where $H_L$ represents the $N \times N$ matrix of terms for the lattice's own Hamiltonian, $H_I$ is the lattice, and $C_{IL}$ along with $C_{LI}$ represent the coupling terms between the lattice atoms and the impurity. 
-\commentSB{Firstly, is there some better notation than this, especially $C_{IL,1}$, with that comma there. Secondly, does $C_{IL,1} = C_{LI,1}$, or is there some other symmetry that can be exploited in the notation?}
+% \commentSB{Firstly, is there some better notation than this, especially $C_{IL,1}$, with that comma there. Secondly, does $C_{IL,1} = C_{LI,1}$, or is there some other symmetry that can be exploited in the notation?}
 
 Define the wavefunction such that
-\begin{equation} \psi = 
+$ \psi = 
 \begin{pmatrix}
-    b_1 \\ \vdots \\ b_N \\ c
-\end{pmatrix} 
-\label{eqn:psi}
-\end{equation}
-\commentTP{Put this in-line, horizontally with transpose operator}
+    b_1 && \vdots && b_N && c
+\end{pmatrix}^T 
+\label{eqn:psi} $,
 and assume that the lattice occupies a steady state, so that the Schr\"odinger equation is
-\commentSB{This equation can maybe be eliminated, as it might be redundant. Is there a more appropriate phrasing than "steady state"?}
 
 \begin{equation} i \hbar 
     \begin{pmatrix}
@@ -208,7 +205,7 @@ Putting this back into the Schr\"odinger equation produces
     \dot{c} = -i (H_I - C_{IL}^T H_L^{-1}C_{LI}) c
 \end{equation}
 Recognizing that $ H_I - C_{IL}^T (H_L^{-1}) C_{LI} = \Sigma_I - i \frac{\gamma_I}{2} $, we can calculate the impurity's self-energy $\Sigma_I$ to be 
-\commentSB{Should this identification be justified?}
+% \commentSB{Should this identification be justified?}
 \begin{equation}
     \Sigma_I = H_I - C_{IL}^T (H_L^{-1}) C_{LI} + i \frac{\gamma_I}{2}
     \label{eqn:selfenergy}
@@ -217,22 +214,16 @@ The effective decay rate $\Gamma_\text{eff}$ for an impurity in the lattice is r
 \begin{equation}
     \Gamma_\text{eff} = \gamma_I - 2~\im[\Sigma_I]
 \end{equation}
-% \begin{equation}
-%     H = 
-%     \begin{pmatrix}
-%         -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & J(r_{12}) - \frac{i \Gamma(r_{12})}{2} & \cdots \\
-%         J(r_{21}) - \frac{i \Gamma(r_{21})}{2} & -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & & \\
-%         \vdots & & \ddots
 
-%     \end{pmatrix}
-% \end{equation} 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/triangle_and_square.png} 
+    \caption{•\commentSB{Should this be made into one long line and put at the top of a page? Also, maybe draw out the full lattices, all 4x4, and the whole triangular lattice. Or maybe just the triangular lattice?}}
+    \label{fig:Bravais}
+\end{figure}
 
+Equipped with these mathematical tools, we consider the full range of non-centered Bravais lattices, for both interstitial and substitutional impurity positions, as illustrated in \fref{fig:Bravais}. In order to reasonably compare lattices of differing geometries, we ensure, whenever possible, that all plaquettes possess the same area throughout all possible transformations. 
 
-% \commentTP{Draw a diagram of the four parts of the Hamiltonian to set up the self-energy calculation.}
-
-
-
-In order to reasonably compare lattices of differing geometries, we ensure whenever possible that all plaquettes possess the same area.
 % , because...
 % \commentSB{Does this argument rely on a momentum-space view of things? In any case, make this constant area argument rigorous}
 
@@ -249,6 +240,52 @@ In order to reasonably compare lattices of differing geometries, we ensure whene
     \end{pmatrix}
 \end{equation}
 
+\subsection{Interstitial}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/interstitial_figure.png} 
+    \caption{•\commentSB{To do: 1) Change monoclinic plaquette to something more like theta = 0.4.   2) Change rectangular scaling to something more like 1.5   3) Draw line paths across all the plaquettes, illustrating which paths the plots are graphed over}}
+    \label{fig:interstitial}
+\end{figure*}
+
+Consider a finite square lattice, with an inter-atomic spacing of $a = 0.2$, defined as a function of the lattice's resonant wavelength. Compare this to the other Bravais lattices, namely a triangular lattice, and monoclinic lattice defined over $\theta$ from $\pi/2$ to $0$, and a rectangular lattice with a scaling factor $\mu$ such that the horizontal sidelength of its rectangular plaquette is $\mu a$. 
+\commentSB{Which variable do we want for scaling? Does $\mu$ work?.} To ensure that the plaquettes of all of these lattices have the same area, we set the sidelength of the triangular plaquettes to $\frac{2}{3^{1/4}}a$, the height of monoclinic lattices to $a$ for all $\theta$, and the height of the rectangular lattices to $a/\mu$. 
+
+For an interstitial impurity, the position of the impurity in the plaquette along with its detuning relative the lattice's resonant frequency determine its decay properties. Detuning is defined as $ \delta_{LI} = \omega_I - \omega_L$. For a given impurity position, $\delta_{LI}$ can be chosen to give optimal $\Gamma_\text{eff}$, by minimizing along a curve such as \fref{fig:delta_check}. By conducting this optimization for all positions within a plaquette, a map of the optimal impurity placement can be constructed. The results of this are depicted in \fref{fig:interstitial}. See the appendix for the values of $\delta_{LI}$ corresponding to these impurity positions. 
+
+In all cases, geometric symmetries determines where the points of minimal $\Gamma_\text{eff}$ lie. The paths of minimal $\Gamma_\text{eff}$ follow the geometry of a Voronoi diagram where the lattice atoms are taken to be ... 
+
+
+
+Whichever geometry one examines, the center of the plaquette is either the optimal position, or at least one of the better positions. For highly symmetric lattices, such as the square lattice and the triangular lattice, it is unequivocally the optimal position, while for lattices where some symmetries are broken by a variable paramter, such as the monoclinic and rectangular lattices, other points can have slower decay rates than the center. 
+
+The role of symmetry is particularly clear once the coupling terms between pairs of particles are plotted over paths through the plaquette space. 
+
+In particular, the points at which the values of coupling terms coincide match the points of geometric symmetry. This is to be expected, 
+
+(as with a square lattice and a triangular lattice)
+
+(as with the monoclinic lattice and the rectangular lattice)
+
+\fref{fig:interstitial} depicts the optimal value of $\Gamma_\text{eff}$
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/temp_delta_check_cropped.png} 
+    \caption{•}
+    \label{fig:delta_check}
+\end{figure}
+
+
+
+
+
+
+
+\subsection{Substitutional}
+
 
 \subsection{Square vs. triangular}
 
@@ -258,16 +295,16 @@ Compare this to a triangular lattice with the same plaquette area, and hence, a 
 \commentSB{fill in these details}
 % \commentSB{see earlier point about how we should really use constant area}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.4\textwidth]{figures/triangle_and_square.png} 
-    \caption{•\commentSB{Should this be made into one long line and put at the top of a page? Also, maybe draw out the full lattices, all 4x4, and the whole triangular lattice. Or maybe just the triangular lattice?}}
-    \label{fig:triangle_and_square}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{figures/triangle_and_square.png} 
+%     \caption{•\commentSB{Should this be made into one long line and put at the top of a page? Also, maybe draw out the full lattices, all 4x4, and the whole triangular lattice. Or maybe just the triangular lattice?}}
+%     \label{fig:Bravais}
+% \end{figure}
 
 \commentSB{Put a diagram of all the Bravais lattices, as a part of this one.}
 
-See \fref{fig:triangle_and_square}.
+See \fref{fig:Bravais}.
 
 % \commentTP{Put a figure that just shows a single plaquette for each of our two cases here, with dots going off in 4 and 3 directions respectively}
 
@@ -300,7 +337,12 @@ After attempting to place the impurity off-center,
 %     \label{fig:delta_check}
 % \end{figure}
 
-\includegraphics[width=0.4\textwidth]{figures/delta_check.png} 
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{figures/temp_delta_check_cropped.png} 
+%     \caption{•}
+%     \label{fig:triangle_and_square_plaquette_interstitial}
+% \end{figure}
 
 \commentSB{Either one or both of these plots, perhaps for some different range of values. Also, can this be fully in-line, or shoud it be given a caption?}
 \commentTP{Have a single graph, from the analytics}
@@ -359,7 +401,7 @@ Performing this substitution on the lattice introduces no additional length scal
     \label{fig:triangle_and_square_plaquette_substitution}
 \end{figure*}
 
-Once again, the point with the highest symmetry experience minimal decay rates
+Once again, the point with the highest symmetry experience minimal decay rates.
 
 % \commentSB{plaquette lineplots showing minimal Gamma}
 
@@ -423,8 +465,9 @@ In particular, consider a monoclinic lattice defined by $\theta$, such that at $
 \section{Two impurity case}
 \commentSO{Q-factor, analyze different lattices -> discuss the most important figures, constant distance}
 
-$\Gamma_\text{eff}$ for a lattice with two impurities is calculated in a manner analagous to the single-impurity case, starting with the Schr\"odinger equation for the two-impurity Hamiltonian, for which  
-\commentSB{Perhaps write out the meanings of all these new variables, if it's not clear}
+$\Gamma_\text{eff}$ for a lattice with two impurities is calculated in a manner analagous to the single-impurity case, starting with the Schr\"odinger equation for the two-impurity Hamiltonian, for which 
+
+% \commentSB{Perhaps write out the meanings of all these new variables, if it's not clear}
 \begin{equation}
     i \hbar \begin{pmatrix}
         0 \\ \vdots \\ 0 \\ \dot{c} \\ \dot{d}
@@ -440,7 +483,7 @@ $\Gamma_\text{eff}$ for a lattice with two impurities is calculated in a manner 
         b_1 \\ \vdots \\ b_N \\ c \\ d
     \end{pmatrix}
     \label{eqn:blockH2}
-\end{equation}
+\end{equation} 
 In this way, 
 \begin{equation}
     b = -(H_L)^{-1} (C_{L1} c + C_{L2} d)
@@ -455,29 +498,20 @@ Putting this result back into the Schr\"odinger equation gives
 \end{align}
 \end{subequations}
 Let $\dot{c} = -i [\Sigma_1 - \frac{i \gamma_1}{2}]c - i \kappa_1 d $ and $\dot{d} = -i [ \Sigma_2 - \frac{i \gamma_2}{2} ] d - i \kappa_2 c $, where $\kappa_1$ and $\kappa_2$ are ``effective couplings.'' Solving for these and the self-energies results in 
-\begin{equation}
-    \Sigma_1 = H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1} + \frac{i \gamma_1}{2}
-\end{equation}
-\begin{equation}
-    \Sigma_2 = H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2} + \frac{i \gamma_2}{2}
-\end{equation}
-\begin{equation}
-    \kappa_1 = C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} 
-\end{equation}
-\begin{equation}
-    \kappa_2 = C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} 
-\end{equation}
-\commentSB{As a general point: At some point, take note of which equation to give numbers and which to not. Because right now, I'm just reflexively giving them all numbers for simplicity's sake.}
-The impurities' effective decay rates are 
-\begin{align}
-    \Gamma_\text{eff,1} = \gamma_1 - 2~\im[\Sigma_1] &&
-    \Gamma_\text{eff,2} = \gamma_2 - 2~\im[\Sigma_2]
-\end{align}
-\commentTP{Put these in-line, and consolidate them into single equations of the form $\Gamma_\text{eff:1,2}$. And mention that the 1 and 2 equations are equal to each other because we choose that to be the case, and so we can really just atlk about a single Geff and a single Q}
-We define the Q-factor as a function of the effective decay rate and the effective coupling, so that 
-\begin{align}
-    Q_1 = \frac{\re[\kappa_1]}{\Gamma_\text{eff,1}} && Q_2 = \frac{\re[\kappa_2]}{\Gamma_\text{eff,2}} 
-\end{align}
+\begin{subequations}
+    \begin{align}
+        \Sigma_1 = H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1} + \frac{i \gamma_1}{2} \\
+        \Sigma_2 = H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2} + \frac{i \gamma_2}{2} \\
+        \kappa_1 = C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} \\
+        \kappa_2 = C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} 
+    \end{align}
+\end{subequations}
+
+The impurities' effective decay rates are determined by $\Gamma_\text{eff,i} = \gamma_1 - 2~\im[\Sigma_i]$, where $i$ stands for either the first or second impurity. Likewise, we define the Q-factor as a function of the effective decay rate and the effective coupling, so that $ Q_i = \frac{\re[\kappa_i]}{\Gamma_\text{eff,i}} $ for each of the two impurities. Because the first and second impurities occupy symmetric positions in the lattice, we find that $\Gamma_\text{eff,1} = \Gamma_\text{eff,2}$ and $Q_1 = Q_2$. We thus consolidate these variables, so that we may speak of the impurities' effective decay rate $\Gamma_\text{eff}$ and overall quality factor $Q$. 
+
+% \commentTP{Put these in-line, and consolidate them into single equations of the form $\Gamma_\text{eff:1,2}$. And mention that the 1 and 2 equations are equal to each other because we choose that to be the case, and so we can really just atlk about a single Geff and a single Q}
+
+
 
 %=================
 \subsection{Monoclinic lattice}
