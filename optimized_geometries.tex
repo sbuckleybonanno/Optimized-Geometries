@@ -141,7 +141,7 @@ where $N_L$ is the number of lattice atoms, $\sigma_i$ is the lowering operator 
 
 % \commentTP{Add impurity Hamiltonian! Write as H = HL + HLI + HII. Define for the two-imputity case, and say that you just take away some terms to get the single impurity case. Write out each of these three terms as three separate equations}
 
-\commentSB{Then, at some point here or later, explain the role of the detuning delta}
+% \commentSB{Then, at some point here or later, explain the role of the detuning delta}
 
 %==============================================================================================
 \section{Single impurity case}
@@ -218,7 +218,7 @@ The effective decay rate $\Gamma_\text{eff}$ for an impurity in the lattice is r
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{figures/triangle_and_square.png} 
-    \caption{•\commentSB{Should this be made into one long line and put at the top of a page? Also, maybe draw out the full lattices, all 4x4, and the whole triangular lattice. Or maybe just the triangular lattice?}}
+    \caption{• \commentSB{This needs to be remade so that a top line illustrates all four Bravais lattices, and a line below that illustrates the difference between the substitutional and interstitial cases. A brute force version of the bottom lines would just be to show the full lattices for each case, so that the figure later on of the substitutional triangular case could be incorporated as one amongst the eight full lattices depicted on the bottom two lines. It would at least be thorough.}}
     \label{fig:Bravais}
 \end{figure}
 
@@ -227,25 +227,25 @@ Equipped with these mathematical tools, we consider the full range of non-center
 % , because...
 % \commentSB{Does this argument rely on a momentum-space view of things? In any case, make this constant area argument rigorous}
 
-------------------------
+% ------------------------
 
-\commentSB{This is just a holding space for this matrix, in case we want to copy and paste it to anywhere. I don't actually intend for it to sit here in this section.}
+% \commentSB{This is just a holding space for this matrix, in case we want to copy and paste it to anywhere. I don't actually intend for it to sit here in this section.}
 
-\begin{equation}
-    H = 
-    \begin{pmatrix}
-        -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & J(r_{12}) - \frac{i \Gamma(r_{12})}{2} & \cdots \\
-        J(r_{21}) - \frac{i \Gamma(r_{21})}{2} & -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & & \\
-        \vdots & & \ddots
-    \end{pmatrix}
-\end{equation}
+% \begin{equation}
+%     H = 
+%     \begin{pmatrix}
+%         -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & J(r_{12}) - \frac{i \Gamma(r_{12})}{2} & \cdots \\
+%         J(r_{21}) - \frac{i \Gamma(r_{21})}{2} & -\frac{i \gamma_L}{2} - \frac{\delta_{LI}}{2} & & \\
+%         \vdots & & \ddots
+%     \end{pmatrix}
+% \end{equation}
 
 \subsection{Interstitial}
 
 \begin{figure*}
     \centering
     \includegraphics[width=1.0\textwidth]{figures/interstitial_figure.png} 
-    \caption{•\commentSB{To do: 1) Change monoclinic plaquette to something more like theta = 0.4.   2) Change rectangular scaling to something more like 1.5   3) Draw line paths across all the plaquettes, illustrating which paths the plots are graphed over}}
+    \caption{•\commentSB{To do: 1) Change monoclinic plaquette to something more like theta = 0.4.   2) Change rectangular scaling to something more like 1.5 or 1.3.  4) Update the Mathematica lineplots to match this, because even now, they were made for the wrong theta and scaling. 3) Draw line paths across all the plaquettes, illustrating which paths the plots are graphed over}}
     \label{fig:interstitial}
 \end{figure*}
 
@@ -254,23 +254,6 @@ Consider a finite square lattice, with an inter-atomic spacing of $a = 0.2$, def
 
 For an interstitial impurity, the position of the impurity in the plaquette along with its detuning relative the lattice's resonant frequency determine its decay properties. Detuning is defined as $ \delta_{LI} = \omega_I - \omega_L$. For a given impurity position, $\delta_{LI}$ can be chosen to give optimal $\Gamma_\text{eff}$, by minimizing along a curve such as \fref{fig:delta_check}. By conducting this optimization for all positions within a plaquette, a map of the optimal impurity placement can be constructed. The results of this are depicted in \fref{fig:interstitial}. See the appendix for the values of $\delta_{LI}$ corresponding to these impurity positions. 
 
-In all cases, geometric symmetries determines where the points of minimal $\Gamma_\text{eff}$ lie. The paths of minimal $\Gamma_\text{eff}$ follow the geometry of a Voronoi diagram where the lattice atoms are taken to be ... 
-
-
-
-Whichever geometry one examines, the center of the plaquette is either the optimal position, or at least one of the better positions. For highly symmetric lattices, such as the square lattice and the triangular lattice, it is unequivocally the optimal position, while for lattices where some symmetries are broken by a variable paramter, such as the monoclinic and rectangular lattices, other points can have slower decay rates than the center. 
-
-The role of symmetry is particularly clear once the coupling terms between pairs of particles are plotted over paths through the plaquette space. 
-
-In particular, the points at which the values of coupling terms coincide match the points of geometric symmetry. This is to be expected, 
-
-(as with a square lattice and a triangular lattice)
-
-(as with the monoclinic lattice and the rectangular lattice)
-
-\fref{fig:interstitial} depicts the optimal value of $\Gamma_\text{eff}$
-
-
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{figures/temp_delta_check_cropped.png} 
@@ -278,180 +261,41 @@ In particular, the points at which the values of coupling terms coincide match t
     \label{fig:delta_check}
 \end{figure}
 
+In all cases, geometric symmetries determines where the points of minimal $\Gamma_\text{eff}$ lie. The paths of minimal $\Gamma_\text{eff}$ follow the geometry of a Voronoi diagram constructed around the lattice atoms. The vertices where edges of this Voronoi partition meet are then the points of minimal $\Gamma_\text{eff}$, which are often the global minima as well. The number of edges that coincide at any one point roughly correlates to how low the effective decay rate will be compared to other such points. For instance, the center of the square plaquette, where four edges coincide, has an optimal $\Gamma_\text{eff}$ ($7.58\times 10^{-5}$ \commentSB{units}) that is approximately an order of magnitude less than the optimal $\Gamma_\text{eff}$ at the center of the triangular plaquette ($6.75\times 10^{-4}$ \commentSB{units}), where only three edges coincide. Note that this Voronoi structure does not always result in the center of the plaquette becoming the optimal position for an impurity, as demonstrated by the monoclinic case. The optimal positions are just off of the center, on the line of symmetry along the long axis of the plaquette, at a pair of points where three Voronoi edges meet. As $\theta$ approaches $\frac{\pi}{2}$, these two points merge into one, at the center of a square plaquette.
 
+\commentSB{This sugguests that we should try a hexagonal plaquette of the same area, and that we will get an even better result from that! Not a Bravais lattice, but surely still worth a try.}
 
-
-
-
+The role that symmetry plays in creating these Voronoi geometries is clear once the couplings $J_{ij}$ and $\Gamma_{ij}$ between pairs of particles are plotted over a path through the plaquette space. At points of geometric symmetry, such as the centers of plaquettes, the values of these couplings coincide. In general, the more that couplings match, the lower the $\Gamma_\text{eff}$ for an impurity placed at the point. In this way, lattices with higher degrees of symmetry (i.e. the square and triangular lattices), and with higher numbers of atoms in a single plaquette (i.e. any Bravais lattice other than the triangular lattice) possess impurity positions with the smallest $\Gamma_\text{eff}$. The fact that the square lattice posses both of these properties helps to explain why it stands out amongst the various Bravais lattices as the optimal choice. 
 
 \subsection{Substitutional}
 
-
-\subsection{Square vs. triangular}
-
-Consider a finite square lattice, with an inter-atomic spacing of $a = 0.2$, defined as a function of \commentSB{that characteristic wavelength}. 
-
-Compare this to a triangular lattice with the same plaquette area, and hence, a side-length of (...) 
-\commentSB{fill in these details}
-% \commentSB{see earlier point about how we should really use constant area}
-
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.4\textwidth]{figures/triangle_and_square.png} 
-%     \caption{•\commentSB{Should this be made into one long line and put at the top of a page? Also, maybe draw out the full lattices, all 4x4, and the whole triangular lattice. Or maybe just the triangular lattice?}}
-%     \label{fig:Bravais}
-% \end{figure}
-
-\commentSB{Put a diagram of all the Bravais lattices, as a part of this one.}
-
-See \fref{fig:Bravais}.
-
-% \commentTP{Put a figure that just shows a single plaquette for each of our two cases here, with dots going off in 4 and 3 directions respectively}
-
-%=================
-\subsubsection{Interstitial}
-\commentSO{Interstitial which imposes one more length scale -> refer to analytics, numerics -> impurity position}
-Now, consider an impurity atom placed within a plaquette. For the square case, we implemented this arrangement using a $4\times 4$ lattice, so that the impurity was centered within the lattice. 
-
-% \commentSB{Put a small diagram here? You can illustrate the length scales here as well}
-
-Likewise, for the triangular case, we placed the impurity at the center of a \commentSB{12 atom?} lattice, with the following arrangement. 
-
-% \commentSB{diagram?}
-
-By placing the impurity at the center of a plaquette, only one additional length scale is introduced. 
-%  Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
-
-% \commentSB{J and Gamma diagrams}
-
-% \commentSB{Should we vary inter-atomic spacing?}
-
-After attempting to place the impurity off-center, 
-
-% \commentTP{Have a plot of Gamma over delta, to justify how we choose an "optimum" delta}
-
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.4\textwidth]{figures/delta_check.png} 
-%     \caption{•}
-%     \label{fig:delta_check}
-% \end{figure}
-
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.4\textwidth]{figures/temp_delta_check_cropped.png} 
-%     \caption{•}
-%     \label{fig:triangle_and_square_plaquette_interstitial}
-% \end{figure}
-
-\commentSB{Either one or both of these plots, perhaps for some different range of values. Also, can this be fully in-line, or shoud it be given a caption?}
-\commentTP{Have a single graph, from the analytics}
-
-% \commentSB{numerics plaquette plots}
 \begin{figure*}
     \centering
-    \includegraphics[width=1.0\textwidth]{figures/triangle_and_square_plaquette_interstitial.png} 
+    \includegraphics[width=1.0\textwidth]{figures/temp_substitution_figure.png} 
     \caption{•}
-    \label{fig:triangle_and_square_plaquette_interstitial}
+    \label{fig:substitution}
 \end{figure*}
-\commentSB{Should the plots in \fref{fig:triangle_and_square_plaquette_interstitial} and \fref{fig:triangle_and_square_plaquette_substitution} be separate?}
-\commentTP{Take out optimal delta values, and put it in the appendix. Change to Stefan's reccomendation, with square and triangle side-by-side, and the minimal lineplots directly below}
 
-it is clear that the point at which the impurity atom experiences minimal decay is at the center of the plaquette. 
+Now, considering substituting a lattice atom for an impurity, so that, in effect, the impurity takes up a vacancy in the lattice.
+In general, the impurity positions available when an impurity is substituted for a lattice atom result in $\Gamma_\text{eff}$ that are sub-optimal compared to an interstitial impurity placement (\fref{fig:substitution}). The best positions for a substitution are also almost always off-center, as an impurity substitution in the exact position of where a lattice atom should be tends to put the $\Gamma_\text{eff}$ of the impurity in the region of a local maximum. Offsetting the impurity so that it lies approximately midway between a lattice atom and the vacancy left by the lattice atom that it replaced returns it to a local maximum. 
 
-% \commentSB{plaquette lineplots showing minimal Gamma}
+\commentSB{Can this argument be made more clear if we add high-contrast version of the hexagonal and rectangular plots?}
 
-This point also possesses the highest symmetry, suggesting that additional symmetries lead to slower decay rates. This hypothesis is supported by the behavior of the coupling constants for various positions of the impurity away from the center 
+The symmetry of the lattice is already broken by substituting an offset impurity for a lattice atom, and so symmetry does not play as great a role in determining the optimal impurity position compared to the interstitial case. If there is any role for symmetry, it is between the lattice atoms and the vacancy made by the substitution, so that the impurity receives the best $\Gamma_\text{eff}$ when it sits between these points. 
 
-\commentSB{a diagram of this description, which has not been made yet. Or perhaps two diagrams, one moving from the center to a lattice point, and another moving from the center to the midpoint between two lattice points. Actually, four diagrams, because these two should be made for both the square and triangular cases. See placeholder below}
+\commentSB{There is surely more to say. For instance, why is the hexagonal case so much worse than the monoclinic case?}
 
-% \begin{figure}
-    % \centering
-    \includegraphics[width=0.4\textwidth]{figures/triangle_and_square_interstitial_coupling.png}
-    % \label{fig:triangle_and_square_coupling}
-% \end{figure}
+For all Bravais lattices, across all monoclinic angles and rectangular scalings, the optimal $\Gamma_\text{eff}$ for a substitutional impurity placement is always greater than the optimal $\Gamma_\text{eff}$ for an interstitial impurity. As a result, to optimize for the longest lifetime of the impurity's excited state, an interstitial placement is best for any Bravais lattice. 
 
+\commentSB{Demonstrate this with a figure that shows the optimal $\Gamma_\text{eff}$ for all theta and scalings. My current plot is inadequate for this, especially, since it keeps the impurity in the center of the plaquette when the best position for a monoclinic lattice is off-center.} 
 
-\commentSB{This is a placeholder. again, should this be given a caption?}
-\commentTP{Consolidate into the two big pictures of this section, as Stefan's outline shows}
-
-
-%=================
-\subsubsection{Substitution}
-\commentSO{Does NOT(!) impose another length scale as long as it is not away from the center -> refer to analytics, -> always at band edge, numerics -> impurity position}
-
-Now, considering substituting a lattice atom for an impurity, so that, in effect, the impurity takes up a vacancy in the lattice. For the square lattice, we used this $5 \times 5$ geometry for our analysis:
-
-\commentSB{diagram. Or is this unnecessary? Probably not}
-
-and for the triangular lattice, we used this geometry
-
-% \commentSB{probably an 18 atom lattice?}
-\includegraphics[width=0.4\textwidth]{figures/triangle_substitution_geometry.png}
-\commentSB{Don't mind the spacing error, that will be fixed. Also, caption or not? Also, make sure to redo simulations with specifically this geometry}
-
-Performing this substitution on the lattice introduces no additional length scales, as long as the impurity is placed at the center of the vacancy. If it is placed off-center, the best possible values of $\Gamma_\text{eff}$ are 
-
-% \commentSB{plaquette plots from numerics}
-
-\begin{figure*}
+\begin{figure}
     \centering
-    \includegraphics[width=1.0\textwidth]{figures/triangle_and_square_plaquette_substitution.png} 
-    \caption{•}
-    \label{fig:triangle_and_square_plaquette_substitution}
-\end{figure*}
+    \includegraphics[width=0.2\textwidth]{figures/triangle_substitution_geometry.png}
+    \label{fig:triangle_substitution_geometry}
+\end{figure}
 
-Once again, the point with the highest symmetry experience minimal decay rates.
-
-% \commentSB{plaquette lineplots showing minimal Gamma}
-
-\commentSB{Maybe include another analytic plot showing how symmetry changes coupling constants? Just do this for square lattice.}
-
-\includegraphics[width=0.4\textwidth]{figures/triangle_and_square_substitution_coupling.png}
-
-\commentSB{placeholder. Also, should this be combined with the other couplings plot? To give a kind of plot of symmetries? Then there will be 3 pages of large plots.}
-
-%==============================================================================================
-\subsection{Monoclinic vs. rectangular lattice}
-\commentSO{similar arguments}
-
-Now, consider the Bravais lattices defined by variable paramters. 
-
-In particular, consider a monoclinic lattice defined by $\theta$, such that at $\theta = \frac{\pi}{2}$ we recover the square lattice case with an inter-atomic spacing of $0.2$. By maintaining a constant vertical distance between the layers of the lattice, we ensure that the area of the plaquettes remains constant over the range $ 0 < \theta \leq \frac{\pi}{2}$. 
-
-\commentSB{diagram of this geometry}
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.4\textwidth]{figures/mono_rect_geo.png} 
-    \caption{•}
-    \label{fig:mono_rect_geo}
-\end{figure*}
-
-%=================
-\subsubsection{Interstitial}
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=1.0\textwidth]{figures/mono_rect_plaquettes_interstitial.png} 
-    \caption{•}
-    \label{fig:mono_rect_plaquette_interstitial}
-\end{figure*}
-
-
-%=================
-\subsubsection{Substitution}
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.4\textwidth]{figures/mono_rect_plaquettes_substitution.png} 
-    \caption{•}
-    \label{fig:mono_rect_plaquette_substitution}
-\end{figure*}
-
-%=================
-\subsubsection{Varying scaling factors}
-\commentSO{justify why we use interstitial in the following}
+\subsection{Varying scaling factors}
 
 \begin{figure}
     \centering
@@ -459,6 +303,177 @@ In particular, consider a monoclinic lattice defined by $\theta$, such that at $
     \caption{•}
     \label{fig:mono_rect_thetadelta}
 \end{figure}
+
+
+
+
+% \subsection{Square vs. triangular}
+
+% Consider a finite square lattice, with an inter-atomic spacing of $a = 0.2$, defined as a function of \commentSB{that characteristic wavelength}. 
+
+% Compare this to a triangular lattice with the same plaquette area, and hence, a side-length of (...) 
+% \commentSB{fill in these details}
+% % \commentSB{see earlier point about how we should really use constant area}
+
+% % \begin{figure}
+% %     \centering
+% %     \includegraphics[width=0.4\textwidth]{figures/triangle_and_square.png} 
+% %     \caption{•\commentSB{Should this be made into one long line and put at the top of a page? Also, maybe draw out the full lattices, all 4x4, and the whole triangular lattice. Or maybe just the triangular lattice?}}
+% %     \label{fig:Bravais}
+% % \end{figure}
+
+% \commentSB{Put a diagram of all the Bravais lattices, as a part of this one.}
+
+% See \fref{fig:Bravais}.
+
+% % \commentTP{Put a figure that just shows a single plaquette for each of our two cases here, with dots going off in 4 and 3 directions respectively}
+
+% %=================
+% \subsubsection{Interstitial}
+% \commentSO{Interstitial which imposes one more length scale -> refer to analytics, numerics -> impurity position}
+% Now, consider an impurity atom placed within a plaquette. For the square case, we implemented this arrangement using a $4\times 4$ lattice, so that the impurity was centered within the lattice. 
+
+% % \commentSB{Put a small diagram here? You can illustrate the length scales here as well}
+
+% Likewise, for the triangular case, we placed the impurity at the center of a \commentSB{12 atom?} lattice, with the following arrangement. 
+
+% % \commentSB{diagram?}
+
+% By placing the impurity at the center of a plaquette, only one additional length scale is introduced. 
+% %  Hence, the coupling as a function of inter-atomic spacing is \commentSB{fairly constant, looking at the analytics?} 
+
+% % \commentSB{J and Gamma diagrams}
+
+% % \commentSB{Should we vary inter-atomic spacing?}
+
+% After attempting to place the impurity off-center, 
+
+% % \commentTP{Have a plot of Gamma over delta, to justify how we choose an "optimum" delta}
+
+% % \begin{figure}
+% %     \centering
+% %     \includegraphics[width=0.4\textwidth]{figures/delta_check.png} 
+% %     \caption{•}
+% %     \label{fig:delta_check}
+% % \end{figure}
+
+% % \begin{figure}
+% %     \centering
+% %     \includegraphics[width=0.4\textwidth]{figures/temp_delta_check_cropped.png} 
+% %     \caption{•}
+% %     \label{fig:triangle_and_square_plaquette_interstitial}
+% % \end{figure}
+
+% \commentSB{Either one or both of these plots, perhaps for some different range of values. Also, can this be fully in-line, or shoud it be given a caption?}
+% \commentTP{Have a single graph, from the analytics}
+
+% % % \commentSB{numerics plaquette plots}
+% % \begin{figure*}
+% %     \centering
+% %     \includegraphics[width=1.0\textwidth]{figures/triangle_and_square_plaquette_interstitial.png} 
+% %     \caption{•}
+% %     \label{fig:triangle_and_square_plaquette_interstitial}
+% % \end{figure*}
+% % \commentSB{Should the plots in \fref{fig:triangle_and_square_plaquette_interstitial} and \fref{fig:triangle_and_square_plaquette_substitution} be separate?}
+% % \commentTP{Take out optimal delta values, and put it in the appendix. Change to Stefan's reccomendation, with square and triangle side-by-side, and the minimal lineplots directly below}
+
+% it is clear that the point at which the impurity atom experiences minimal decay is at the center of the plaquette. 
+
+% % \commentSB{plaquette lineplots showing minimal Gamma}
+
+% This point also possesses the highest symmetry, suggesting that additional symmetries lead to slower decay rates. This hypothesis is supported by the behavior of the coupling constants for various positions of the impurity away from the center 
+
+% \commentSB{a diagram of this description, which has not been made yet. Or perhaps two diagrams, one moving from the center to a lattice point, and another moving from the center to the midpoint between two lattice points. Actually, four diagrams, because these two should be made for both the square and triangular cases. See placeholder below}
+
+% % \begin{figure}
+%     % \centering
+%     % \includegraphics[width=0.4\textwidth]{figures/triangle_and_square_interstitial_coupling.png}
+%     % \label{fig:triangle_and_square_coupling}
+% % \end{figure}
+
+
+% \commentSB{This is a placeholder. again, should this be given a caption?}
+% \commentTP{Consolidate into the two big pictures of this section, as Stefan's outline shows}
+
+
+% %=================
+% \subsubsection{Substitution}
+% \commentSO{Does NOT(!) impose another length scale as long as it is not away from the center -> refer to analytics, -> always at band edge, numerics -> impurity position}
+
+% Now, considering substituting a lattice atom for an impurity, so that, in effect, the impurity takes up a vacancy in the lattice. For the square lattice, we used this $5 \times 5$ geometry for our analysis:
+
+% \commentSB{diagram. Or is this unnecessary? Probably not}
+
+% and for the triangular lattice, we used this geometry
+
+% \commentSB{probably an 18 atom lattice?}
+
+
+% \commentSB{Don't mind the spacing error, that will be fixed. Also, caption or not? Also, make sure to redo simulations with specifically this geometry}
+
+% Performing this substitution on the lattice introduces no additional length scales, as long as the impurity is placed at the center of the vacancy. If it is placed off-center, the best possible values of $\Gamma_\text{eff}$ are 
+
+% % \commentSB{plaquette plots from numerics}
+
+% % \begin{figure*}
+% %     \centering
+% %     \includegraphics[width=1.0\textwidth]{figures/triangle_and_square_plaquette_substitution.png} 
+% %     \caption{•}
+% %     \label{fig:triangle_and_square_plaquette_substitution}
+% % \end{figure*}
+
+% Once again, the point with the highest symmetry experience minimal decay rates.
+
+% % \commentSB{plaquette lineplots showing minimal Gamma}
+
+% % \commentSB{Maybe include another analytic plot showing how symmetry changes coupling constants? Just do this for square lattice.}
+
+% % \includegraphics[width=0.4\textwidth]{figures/triangle_and_square_substitution_coupling.png}
+
+% % \commentSB{placeholder. Also, should this be combined with the other couplings plot? To give a kind of plot of symmetries? Then there will be 3 pages of large plots.}
+
+% %==============================================================================================
+% \subsection{Monoclinic vs. rectangular lattice}
+% \commentSO{similar arguments}
+
+% Now, consider the Bravais lattices defined by variable paramters. 
+
+% In particular, consider a monoclinic lattice defined by $\theta$, such that at $\theta = \frac{\pi}{2}$ we recover the square lattice case with an inter-atomic spacing of $0.2$. By maintaining a constant vertical distance between the layers of the lattice, we ensure that the area of the plaquettes remains constant over the range $ 0 < \theta \leq \frac{\pi}{2}$. 
+
+% \commentSB{diagram of this geometry}
+
+% % \begin{figure*}
+% %     \centering
+% %     \includegraphics[width=0.4\textwidth]{figures/mono_rect_geo.png} 
+% %     \caption{•}
+% %     \label{fig:mono_rect_geo}
+% % \end{figure*}
+
+% %=================
+% \subsubsection{Interstitial}
+
+% % \begin{figure*}
+% %     \centering
+% %     \includegraphics[width=1.0\textwidth]{figures/mono_rect_plaquettes_interstitial.png} 
+% %     \caption{•}
+% %     \label{fig:mono_rect_plaquette_interstitial}
+% % \end{figure*}
+
+
+% %=================
+% \subsubsection{Substitution}
+
+% % \begin{figure*}
+% %     \centering
+% %     \includegraphics[width=0.4\textwidth]{figures/mono_rect_plaquettes_substitution.png} 
+% %     \caption{•}
+% %     \label{fig:mono_rect_plaquette_substitution}
+% % \end{figure*}
+
+% %=================
+% \subsubsection{Varying scaling factors}
+% \commentSO{justify why we use interstitial in the following}
+
 
 
 %==============================================================================================
