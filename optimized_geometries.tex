@@ -267,6 +267,8 @@ In all cases, geometric symmetries determines where the points of minimal $\Gamm
 
 The role that symmetry plays in creating these Voronoi geometries is clear once the couplings $J_{ij}$ and $\Gamma_{ij}$ between pairs of particles are plotted over a path through the plaquette space. At points of geometric symmetry, such as the centers of plaquettes, the values of these couplings coincide. In general, the more that couplings match, the lower the $\Gamma_\text{eff}$ for an impurity placed at the point. In this way, lattices with higher degrees of symmetry (i.e. the square and triangular lattices), and with higher numbers of atoms in a single plaquette (i.e. any Bravais lattice other than the triangular lattice) possess impurity positions with the smallest $\Gamma_\text{eff}$. The fact that the square lattice posses both of these properties helps to explain why it stands out amongst the various Bravais lattices as the optimal choice. 
 
+\commentTP{Look at the "unscaled example.png," and see how it shows that not must the nearest neighbors, but the second-nearest neighbors also matter to ensuring a small Gamma eff at the center. Then make this point in the paper, that the collective modes are not just governed by nearest neighbors.}
+
 \subsection{Substitutional}
 
 \begin{figure*}
@@ -277,7 +279,7 @@ The role that symmetry plays in creating these Voronoi geometries is clear once 
 \end{figure*}
 
 Now, considering substituting a lattice atom for an impurity, so that, in effect, the impurity takes up a vacancy in the lattice.
-In general, the impurity positions available when an impurity is substituted for a lattice atom result in $\Gamma_\text{eff}$ that are sub-optimal compared to an interstitial impurity placement (\fref{fig:substitution}). The best positions for a substitution are also almost always off-center, as an impurity substitution in the exact position of where a lattice atom should be tends to put the $\Gamma_\text{eff}$ of the impurity in the region of a local maximum. Offsetting the impurity so that it lies approximately midway between a lattice atom and the vacancy left by the lattice atom that it replaced returns it to a local maximum. 
+In general, the impurity positions available when an impurity is substituted for a lattice atom result in $\Gamma_\text{eff}$ that are sub-optimal compared to an interstitial impurity placement (\fref{fig:substitution}). The best positions for a substitution are also almost always off-center, as an impurity substitution in the exact position of where a lattice atom should be tends to put the $\Gamma_\text{eff}$ of the impurity in the region of a local maximum. Offsetting the impurity so that it lies approximately midway between a lattice atom and the vacancy left by the lattice atom that is replaced returns it to a local maximum. 
 
 \commentSB{Can this argument be made more clear if we add high-contrast version of the hexagonal and rectangular plots?}
 
@@ -300,7 +302,14 @@ For all Bravais lattices, across all monoclinic angles and rectangular scalings,
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{figures/mono_rect_thetadelta.png} 
-    \caption{•}
+    \caption{•\commentTP{Reproduce this plot with the impurity kept at the Voronoi vertices and not at the center. Use the analytical definition of the Voronoi vertices, so that you don't have to optimize for every theta.}}
+    \label{fig:mono_rect_thetadelta}
+\end{figure}
+
+\begin{figure}
+    \centering
+    % \includegraphics[width=0.4\textwidth]{figures/mono_rect_thetadelta.png} 
+    \caption{•\commentTP{Make a bar plot of the minimal Gamma eff for all eight of the cases considered in this section. Use this to prove that the interstitial case is always better than the substitutional. Also, on the plaquette plot figures, mark where these minima are with an arrow.}}
     \label{fig:mono_rect_thetadelta}
 \end{figure}
 
@@ -507,9 +516,9 @@ Putting this result back into the Schr\"odinger equation gives
 \begin{subequations}
 \begin{align}
     \dot{c} &= -i \left[  H_1 - {C_{1L}}^T (H_L)^{-1} C_{L1}\right] c \nonumber\\
-     &\quad- i \left[  C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} \right]  \\
-    \dot{d} &= -i \left[  H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2}\right] c \nonumber\\
-     &\quad- i \left[  C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} \right] d 
+     &\quad- i \left[  C_{12} - {C_{1L}}^T (H_L)^{-1} C_{L2} \right] d \\
+    \dot{d} &= -i \left[  C_{21} - {C_{2L}}^T (H_L)^{-1} C_{L1} \right] c \nonumber\\
+     &\quad -i \left[  H_2 - {C_{2L}}^T (H_L)^{-1} C_{L2}\right] d
 \end{align}
 \end{subequations}
 Let $\dot{c} = -i [\Sigma_1 - \frac{i \gamma_1}{2}]c - i \kappa_1 d $ and $\dot{d} = -i [ \Sigma_2 - \frac{i \gamma_2}{2} ] d - i \kappa_2 c $, where $\kappa_1$ and $\kappa_2$ are ``effective couplings.'' Solving for these and the self-energies results in 
